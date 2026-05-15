@@ -1,0 +1,22 @@
+{
+  "scrapedAt": "2026-05-15",
+  "sources": [
+    "https://eict.iitg.ac.in/index",
+    "https://eict.iitg.ac.in/index_phase_details?page=MEF0SkM1MUM0SXhTcHU4SE5PMDVRUT09&title=synopsis",
+    "https://courses.eictiitg.com/index.html",
+    "https://courses.eictiitg.com/professional.html",
+    "https://eict.iitg.ac.in/eictacad/index_page_team"
+  ],
+  "contact": {
+    "email": "eictacad@iitg.ac.in",
+    "phoneOffice": "+91-361-2583182",
+    "phoneMobile": "+91-7086502139"
+  },
+  "stats": {
+    "programsConducted": "400+",
+    "participantsTrained": "25000+",
+    "professionalCertTrained": "2000+",
+    "inaugurated": "January 19, 2016",
+    "projectStarted": "March 26, 2015"
+  }
+}
