@@ -15,6 +15,11 @@ import {
   updateRegistrationStep,
 } from "@/lib/registration-session";
 import { Check } from "lucide-react";
+import {
+  admissionSteps,
+  admissionBankDetails,
+  professionalCertFee,
+} from "@/data/fees";
 
 const steps = ["Basic Info", "Verification", "Payment"];
 const inputClass =
@@ -85,8 +90,8 @@ export function RegistrationStepper() {
       <div className="mb-8 text-center">
         <h1 className="font-display text-3xl font-bold text-white">Course Registration</h1>
         <p className="mt-2 text-slate-400">
-          Apply for Phase-II VLSI Programme — session expires in {REGISTRATION_TTL_MINUTES}{" "}
-          minutes
+          Mirrors courses.eictiitg.com/admission.html — registration fee ₹
+          {professionalCertFee.registrationFee} · session TTL {REGISTRATION_TTL_MINUTES} min
         </p>
         {getRegistrationSession() && !expired && (
           <span className="mt-3 inline-block rounded-full border border-cyan-400/40 bg-cyan-500/10 px-3 py-1 text-sm text-cyan-300">
@@ -142,7 +147,15 @@ export function RegistrationStepper() {
 
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="font-display text-lg text-white">Basic Information</h2>
+              <h2 className="font-display text-lg text-white">Step 1 — Registration</h2>
+              <ol className="mb-4 space-y-2 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-xs text-slate-400">
+                {admissionSteps.map((s) => (
+                  <li key={s.step}>
+                    <span className="text-cyan-400">Step {s.step}:</span> {s.title} — {s.details}
+                  </li>
+                ))}
+              </ol>
+              <h3 className="text-sm font-medium text-white">Your details</h3>
               <input className={inputClass} placeholder="Full name" />
               <input className={inputClass} type="email" placeholder="Email address" />
               <input className={inputClass} placeholder="Phone (+91)" />
@@ -168,12 +181,19 @@ export function RegistrationStepper() {
           )}
 
           {step === 3 && (
-            <div className="space-y-4 text-center">
+            <div className="space-y-4">
               <h2 className="font-display text-lg text-white">Payment</h2>
-              <p className="text-3xl font-bold text-cyan-400">₹12,000</p>
-              <p className="text-sm text-slate-400">Mock payment — no charge in demo</p>
-              <div className="rounded-lg border border-dashed border-white/10 p-6 text-slate-500">
-                UPI / Card gateway placeholder
+              <p className="text-center text-3xl font-bold text-cyan-400">
+                ₹{professionalCertFee.registrationFee.toLocaleString()}
+              </p>
+              <p className="text-center text-sm text-slate-400">
+                Registration fee (non-refundable) · Mock gateway in demo
+              </p>
+              <div className="rounded-lg border border-white/10 bg-white/[0.02] p-4 text-sm text-slate-400">
+                <p className="font-medium text-white">{admissionBankDetails.bankName}</p>
+                <p>{admissionBankDetails.accountName}</p>
+                <p>A/C: {admissionBankDetails.accountNo}</p>
+                <p>IFSC: {admissionBankDetails.ifsc}</p>
               </div>
             </div>
           )}

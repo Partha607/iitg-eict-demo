@@ -9,11 +9,13 @@ import { GlowButton } from "@/components/ui/GlowButton";
 import { siteConfig } from "@/data/site";
 
 const links = [
+  { href: "/academy", label: "Home" },
   { href: "/academy/about", label: "About" },
   { href: "/academy/courses", label: "Courses" },
   { href: "/academy/faculty", label: "Faculty" },
   { href: "/academy/gallery", label: "Gallery" },
   { href: "/academy/contact", label: "Contact" },
+  { href: "/academy/revamp", label: "Revamp Map" },
 ];
 
 export function AcademyNav() {

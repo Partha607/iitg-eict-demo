@@ -1,12 +1,29 @@
 {
   "scrapedAt": "2026-05-15",
-  "sources": [
+  "method": "Firecrawl MCP (user-firecrawl-mcp)",
+  "urlsFromFile": 44,
+  "sourcesSampled": [
     "https://eict.iitg.ac.in/index",
     "https://eict.iitg.ac.in/index_phase_details?page=MEF0SkM1MUM0SXhTcHU4SE5PMDVRUT09&title=synopsis",
+    "https://eict.iitg.ac.in/index_phase_details?page=TjB2L0RHcUFnUGNzR1JlL1dPMS9hdz09&title=achievements",
+    "https://eict.iitg.ac.in/eictacad/index_page_team",
+    "https://eict.iitg.ac.in/eictacad/index_page_board_committee",
     "https://courses.eictiitg.com/index.html",
     "https://courses.eictiitg.com/professional.html",
-    "https://eict.iitg.ac.in/eictacad/index_page_team"
+    "https://courses.eictiitg.com/fee.html",
+    "https://courses.eictiitg.com/faq.html",
+    "https://courses.eictiitg.com/admission.html"
   ],
+  "demoRoutes": {
+    "academyHome": "/academy",
+    "revampMap": "/academy/revamp",
+    "about": "/academy/about",
+    "courses": "/academy/courses",
+    "faculty": "/academy/faculty",
+    "contactFaq": "/academy/contact",
+    "portalRegister": "/portal/register",
+    "portalLms": "/portal/lms"
+  },
   "contact": {
     "email": "eictacad@iitg.ac.in",
     "phoneOffice": "+91-361-2583182",
@@ -16,6 +33,8 @@
     "programsConducted": "400+",
     "participantsTrained": "25000+",
     "professionalCertTrained": "2000+",
+    "phase1Fdps": 327,
+    "phase1Beneficiaries": 18543,
     "inaugurated": "January 19, 2016",
     "projectStarted": "March 26, 2015"
   }

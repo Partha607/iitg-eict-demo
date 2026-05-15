@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import { faculty, type FacultyCategory } from "@/data/faculty";
+import { committees, associatedFaculty } from "@/data/board";
 import { GlassCard } from "@/components/ui/GlassCard";
 
 const categories: (FacultyCategory | "All")[] = [
@@ -82,6 +83,31 @@ export function FacultyDirectory() {
             </button>
           </GlassCard>
         ))}
+      </div>
+
+      <div className="mt-16 space-y-6">
+        <h2 className="font-display text-2xl font-bold text-white">Governance &amp; Committees</h2>
+        <p className="text-sm text-slate-500">
+          From eict.iitg.ac.in board committee page — consolidated under Faculty
+        </p>
+        {committees.map((c) => (
+          <GlassCard key={c.title}>
+            <h3 className="font-display text-lg text-white">{c.title}</h3>
+            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+              {c.members.map((m) => (
+                <li key={m}>▸ {m}</li>
+              ))}
+            </ul>
+          </GlassCard>
+        ))}
+        <GlassCard>
+          <h3 className="font-display text-lg text-white">Associated Faculty</h3>
+          <ul className="mt-3 grid gap-1 text-sm text-slate-400 sm:grid-cols-2">
+            {associatedFaculty.map((m) => (
+              <li key={m}>▸ {m}</li>
+            ))}
+          </ul>
+        </GlassCard>
       </div>
     </div>
   );

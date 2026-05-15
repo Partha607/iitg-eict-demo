@@ -73,7 +73,7 @@ export function SplitEntry() {
       <div className="flex flex-1 flex-col md:flex-row">
         <Link
           ref={leftRef}
-          href="/academy/about"
+          href="/academy"
           className="group relative flex flex-1 flex-col items-center justify-center border-b border-white/5 bg-slate-950/80 p-10 transition-colors md:border-b-0 md:border-r"
           onMouseEnter={() => handleHover("left", true)}
           onMouseLeave={() => handleHover("left", false)}

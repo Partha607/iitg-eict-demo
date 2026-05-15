@@ -18,6 +18,9 @@
 # production
 /build
 
+# firecrawl scrape output
+.firecrawl/
+
 # misc
 .DS_Store
 *.pem

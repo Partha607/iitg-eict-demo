@@ -3,7 +3,18 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, registerGsap } from "@/lib/gsap";
-import { timeline, achievements, facilities, neBenefits, edTechNote } from "@/data/about";
+import {
+  timeline,
+  achievements,
+  facilities,
+  neBenefitsBullets,
+  neBenefitsNote,
+  edTechNote,
+  synopsis,
+  phase1AchievementStats,
+  newFdpDevelopment,
+  whyEnrolReasons,
+} from "@/data/about";
 import { siteConfig } from "@/data/site";
 import { GlassCard } from "@/components/ui/GlassCard";
 
@@ -42,11 +53,47 @@ export function AboutTimeline() {
         <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
           About E&ICT Academy
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-slate-400">
-          Established under MeitY at IIT Guwahati — specialized training in electronics
-          and ICT for faculty and professionals across India, with focus on the North East.
-        </p>
+        <p className="mx-auto mt-4 max-w-2xl text-slate-400">{synopsis}</p>
       </section>
+
+      <GlassCard className="mb-12">
+        <h2 className="font-display text-lg text-white">Phase-I Impact (scraped)</h2>
+        <div className="mt-4 overflow-x-auto">
+            <table className="w-full min-w-[480px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-white/10 text-slate-500">
+                  <th className="py-2 pr-4">Metric</th>
+                  <th className="py-2">Value</th>
+                </tr>
+              </thead>
+              <tbody className="text-slate-300">
+                <tr className="border-b border-white/5">
+                  <td className="py-2">FDPs conducted</td>
+                  <td className="py-2 text-cyan-400">{phase1AchievementStats.fdps}</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-2">Faculty trained</td>
+                  <td className="py-2">{phase1AchievementStats.facultyTrained.toLocaleString()}</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-2">Students / professionals</td>
+                  <td className="py-2">{phase1AchievementStats.studentsTrained.toLocaleString()}</td>
+                </tr>
+                <tr>
+                  <td className="py-2">Total beneficiaries</td>
+                  <td className="py-2 font-semibold text-white">
+                    {phase1AchievementStats.totalBeneficiaries.toLocaleString()}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <p className="mt-3 text-xs text-slate-500">
+          New FDPs developed: {newFdpDevelopment.electronics} Electronics,{" "}
+          {newFdpDevelopment.it} IT, {newFdpDevelopment.ict} ICT — total{" "}
+          {newFdpDevelopment.total}
+        </p>
+      </GlassCard>
 
       <div ref={statsRef} className="mb-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {siteConfig.stats.map((s) => (
@@ -92,12 +139,31 @@ export function AboutTimeline() {
         </GlassCard>
         <GlassCard className="md:col-span-2">
           <h2 className="font-display text-lg text-white">Benefits to NE States</h2>
-          <p className="mt-3 text-sm text-slate-400">{neBenefits}</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            {neBenefitsBullets.map((b) => (
+              <li key={b} className="flex gap-2">
+                <span className="text-cyan-400">▸</span> {b}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm text-slate-500">{neBenefitsNote}</p>
           <p className="mt-4 rounded-lg border border-amber-400/20 bg-amber-500/5 p-3 text-xs text-amber-200/80">
             {edTechNote}
           </p>
         </GlassCard>
       </div>
+
+      <GlassCard className="mt-8">
+        <h2 className="font-display text-lg text-white">Why Enrol (Online Courses)</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          {whyEnrolReasons.map((r) => (
+            <div key={r.title} className="rounded-lg border border-white/5 p-4">
+              <h3 className="text-sm font-medium text-white">{r.title}</h3>
+              <p className="mt-1 text-xs text-slate-400">{r.benefits}</p>
+            </div>
+          ))}
+        </div>
+      </GlassCard>
     </div>
   );
 }

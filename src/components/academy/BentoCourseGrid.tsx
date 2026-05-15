@@ -4,6 +4,9 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { courses, type Course, type CourseStatus } from "@/data/courses";
+import { phase2Domains } from "@/data/course-domains";
+import { fdpFeeRows, professionalCertFee } from "@/data/fees";
+import { scrapedProfessionalDomains } from "@/data/scraped-content";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Clock, Monitor } from "lucide-react";
@@ -93,6 +96,63 @@ export function BentoCourseGrid() {
             </div>
           </GlassCard>
         ))}
+      </div>
+
+      <GlassCard className="mt-12">
+        <h2 className="font-display text-lg text-white">Phase-II Course Domains</h2>
+        <p className="mt-1 text-sm text-slate-500">From eict.iitg.ac.in — 20 focus areas</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {phase2Domains.map((d) => (
+            <span
+              key={d}
+              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-slate-300"
+            >
+              {d}
+            </span>
+          ))}
+        </div>
+      </GlassCard>
+
+      <div className="mt-8 grid gap-6 lg:grid-cols-2">
+        <GlassCard>
+          <h2 className="font-display text-lg text-white">FDP Fee Structure (Phase-II)</h2>
+          <p className="mt-1 text-xs text-slate-500">Inclusive of 18% GST</p>
+          <table className="mt-4 w-full text-sm">
+            <thead>
+              <tr className="border-b border-white/10 text-left text-slate-500">
+                <th className="py-2">Mode</th>
+                <th className="py-2">Technical (₹)</th>
+                <th className="py-2">Non-Technical (₹)</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-300">
+              {fdpFeeRows.map((row) => (
+                <tr key={row.mode} className="border-b border-white/5">
+                  <td className="py-2">{row.mode}</td>
+                  <td className="py-2">{row.technical}</td>
+                  <td className="py-2">{row.nonTechnical}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </GlassCard>
+        <GlassCard>
+          <h2 className="font-display text-lg text-white">Professional Certification</h2>
+          <p className="mt-2 text-sm text-slate-400">
+            Registration: ₹{professionalCertFee.registrationFee.toLocaleString()} (non-refundable)
+          </p>
+          <p className="mt-2 text-2xl font-bold text-cyan-400">
+            ₹{professionalCertFee.totalFourSemesters.toLocaleString()}
+          </p>
+          <p className="text-xs text-slate-500">
+            4 semesters × ₹{professionalCertFee.perSemester.toLocaleString()} — courses.eictiitg.com
+          </p>
+          <ul className="mt-4 space-y-1 text-xs text-slate-400">
+            {scrapedProfessionalDomains.map((d) => (
+              <li key={d}>▸ {d}</li>
+            ))}
+          </ul>
+        </GlassCard>
       </div>
     </div>
   );

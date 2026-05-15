@@ -5,6 +5,7 @@ import { Mail, MessageCircle } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { GlowButton } from "@/components/ui/GlowButton";
 import { siteConfig } from "@/data/site";
+import { FaqSection } from "@/components/academy/FaqSection";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -19,6 +20,7 @@ export function ContactForm() {
     "w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-white focus:border-cyan-400/50 focus:outline-none";
 
   return (
+    <div className="space-y-12">
     <div className="grid gap-8 lg:grid-cols-2">
       <div>
         <h1 className="font-display text-4xl font-bold text-white">Contact Us</h1>
@@ -90,6 +92,8 @@ export function ContactForm() {
           </form>
         )}
       </GlassCard>
+    </div>
+    <FaqSection />
     </div>
   );
 }

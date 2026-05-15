@@ -1,0 +1,23 @@
+/** Phase-II course domains from eict.iitg.ac.in (Firecrawl scrape) */
+export const phase2Domains = [
+  "VLSI",
+  "RF and Microwave",
+  "Communications",
+  "Artificial Intelligence / Machine Learning",
+  "Big Data Analytics",
+  "Signal Processing",
+  "High Performance Computing",
+  "Security",
+  "Embedded Systems",
+  "Programming Language",
+  "Computational Fluid Dynamics",
+  "Computational Biology",
+  "Computational Physics",
+  "Finite Element Method",
+  "Solar Photovoltaics and Renewable Energy",
+  "Technologies for Smart City",
+  "Internet of Things",
+  "ICT",
+  "Mentoring Pedagogy",
+  "OOPS",
+];
