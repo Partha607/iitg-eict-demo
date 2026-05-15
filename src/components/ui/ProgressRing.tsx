@@ -35,13 +35,24 @@ export function ProgressRing({
 
   return (
     <div className="relative inline-flex items-center justify-center">
-      <svg width={size} height={size} className="-rotate-90">
+      <svg
+        width={size}
+        height={size}
+        className="-rotate-90 progress-ring-glow"
+        aria-hidden
+      >
+        <defs>
+          <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#22d3ee" />
+            <stop offset="100%" stopColor="#3b82f6" />
+          </linearGradient>
+        </defs>
         <circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(255,255,255,0.08)"
+          className="stroke-slate-300/30 dark:stroke-white/10"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -50,15 +61,14 @@ export function ProgressRing({
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#22d3ee"
+          stroke="url(#ring-gradient)"
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={circumference}
-          className="drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
         />
       </svg>
-      <span className="absolute font-display text-2xl font-bold text-cyan-400">
+      <span className="absolute font-display text-2xl font-bold text-cyan-600 dark:text-cyan-400">
         {progress}%
       </span>
     </div>

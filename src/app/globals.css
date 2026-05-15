@@ -1,18 +1,57 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
   --color-cyan-glow: #22d3ee;
   --color-obsidian: #020617;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-theme-card: var(--card);
+  --color-theme-border: var(--border);
+  --color-nav: var(--nav-bg);
+}
+
+:root,
+.light {
+  color-scheme: light;
+  --background: #f1f5f9;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --card: rgba(255, 255, 255, 0.85);
+  --border: rgba(15, 23, 42, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --grid-line: rgba(15, 23, 42, 0.06);
+  --grid-glow-cyan: rgba(34, 211, 238, 0.08);
+  --grid-glow-blue: rgba(59, 130, 246, 0.06);
+  --scrollbar-track: #e2e8f0;
+  --scrollbar-thumb: #94a3b8;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #020617;
+  --foreground: #f1f5f9;
+  --muted: #94a3b8;
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(2, 6, 23, 0.85);
+  --grid-line: rgba(148, 163, 184, 0.03);
+  --grid-glow-cyan: rgba(34, 211, 238, 0.12);
+  --grid-glow-blue: rgba(59, 130, 246, 0.08);
+  --scrollbar-track: #0f172a;
+  --scrollbar-thumb: #334155;
 }
 
 html {
-  color-scheme: dark;
+  @apply bg-background text-foreground;
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased;
+  @apply min-h-screen antialiased;
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
@@ -21,21 +60,57 @@ body {
 }
 
 .grid-bg {
-  background-color: #020617;
+  background-color: var(--background);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(59, 130, 246, 0.08), transparent),
-    linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--grid-glow-cyan), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, var(--grid-glow-blue), transparent),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
 }
 
 .glass-panel {
-  @apply rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl;
+  @apply rounded-xl border border-theme-border backdrop-blur-xl;
+  background: var(--card);
 }
 
 .glow-cyan {
   box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
+}
+
+.btn-gradient-primary {
+  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+}
+
+.status-glow-published {
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.35), inset 0 0 8px rgba(34, 211, 238, 0.1);
+}
+
+.status-glow-draft {
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
+}
+
+.status-glow-info {
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
+}
+
+.stepper-glow-complete {
+  box-shadow:
+    0 0 20px rgba(34, 211, 238, 0.45),
+    0 0 40px rgba(34, 211, 238, 0.15);
+}
+
+.progress-ring-glow {
+  filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.65))
+    drop-shadow(0 0 24px rgba(34, 211, 238, 0.25));
+}
+
+.channel-glow-whatsapp {
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.7));
+}
+
+.channel-glow-email {
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.7));
 }
 
 ::-webkit-scrollbar {
@@ -44,11 +119,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 

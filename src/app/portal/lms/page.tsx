@@ -1,5 +1,5 @@
-import { LmsDashboard } from "@/components/portal/LmsDashboard";
+import { StudentDashboard } from "@/components/portal/dashboard/StudentDashboard";
 
 export default function LmsPage() {
-  return <LmsDashboard />;
+  return <StudentDashboard />;
 }

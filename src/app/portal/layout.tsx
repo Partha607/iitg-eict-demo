@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { PortalSidebar } from "@/components/layouts/PortalSidebar";
 
 const minimalRoutes = ["/portal/login", "/portal/register"];
+const dashboardRoutes = ["/portal/lms", "/portal/staff"];
 
 export default function PortalLayout({
   children,
@@ -12,8 +13,9 @@ export default function PortalLayout({
 }) {
   const pathname = usePathname();
   const minimal = minimalRoutes.includes(pathname);
+  const isDashboard = dashboardRoutes.includes(pathname);
 
-  if (minimal) {
+  if (minimal || isDashboard) {
     return <main className="min-h-screen">{children}</main>;
   }
 

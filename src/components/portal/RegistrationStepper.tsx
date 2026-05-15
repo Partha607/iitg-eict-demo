@@ -5,6 +5,8 @@ import { useGSAP } from "@gsap/react";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { GlowButton } from "@/components/ui/GlowButton";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { Logo } from "@/components/ui/Logo";
 import {
   clearRegistrationSession,
   formatCountdown,
@@ -14,7 +16,7 @@ import {
   startRegistrationSession,
   updateRegistrationStep,
 } from "@/lib/registration-session";
-import { Check } from "lucide-react";
+import { Check, CloudUpload } from "lucide-react";
 import {
   admissionSteps,
   admissionBankDetails,
@@ -23,7 +25,7 @@ import {
 
 const steps = ["Basic Info", "Verification", "Payment"];
 const inputClass =
-  "w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3.5 text-base text-white focus:border-cyan-400/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/10";
+  "w-full rounded-lg border border-theme-border bg-theme-card px-4 py-3.5 text-base text-foreground focus:border-cyan-400/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/10";
 
 export function RegistrationStepper() {
   const [step, setStep] = useState(1);
@@ -87,14 +89,19 @@ export function RegistrationStepper() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10">
+      <div className="mb-6 flex items-center justify-between">
+        <Logo href="/" />
+        <ThemeToggle />
+      </div>
+
       <div className="mb-8 text-center">
-        <h1 className="font-display text-3xl font-bold text-white">Course Registration</h1>
-        <p className="mt-2 text-slate-400">
+        <h1 className="font-display text-3xl font-bold text-foreground">Course Registration</h1>
+        <p className="mt-2 text-muted">
           Mirrors courses.eictiitg.com/admission.html — registration fee ₹
           {professionalCertFee.registrationFee} · session TTL {REGISTRATION_TTL_MINUTES} min
         </p>
         {getRegistrationSession() && !expired && (
-          <span className="mt-3 inline-block rounded-full border border-cyan-400/40 bg-cyan-500/10 px-3 py-1 text-sm text-cyan-300">
+          <span className="mt-3 inline-block rounded-full border border-cyan-400/40 bg-cyan-500/10 px-3 py-1 text-sm text-cyan-700 dark:text-cyan-300">
             TTL: {countdown}
           </span>
         )}
@@ -111,19 +118,19 @@ export function RegistrationStepper() {
                 <div
                   className={`flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm font-bold ${
                     active
-                      ? "border-cyan-400 bg-cyan-500/20 text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.4)]"
+                      ? "border-cyan-400 bg-cyan-500/20 text-cyan-700 stepper-glow-complete dark:text-cyan-300"
                       : done
-                        ? "border-emerald-400 bg-emerald-500/20 text-emerald-300"
-                        : "border-white/10 text-slate-500"
+                        ? "border-emerald-400 bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
+                        : "border-theme-border text-muted"
                   }`}
                 >
                   {done ? <Check size={18} /> : num}
                 </div>
-                <span className="mt-2 hidden text-xs text-slate-400 sm:block">{label}</span>
+                <span className="mt-2 hidden text-xs text-muted sm:block">{label}</span>
               </div>
               {i < steps.length - 1 && (
                 <div
-                  className={`mx-2 h-0.5 flex-1 ${done ? "bg-cyan-400/60" : "bg-white/10"}`}
+                  className={`mx-2 h-0.5 flex-1 ${done ? "bg-cyan-400/60" : "bg-theme-border"}`}
                 />
               )}
             </div>
@@ -134,9 +141,11 @@ export function RegistrationStepper() {
       <GlassCard glow className="relative">
         <div ref={panelRef}>
           {expired && (
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-xl bg-slate-950/95 p-8">
-              <p className="font-display text-xl text-red-400">Session Expired</p>
-              <p className="mt-2 text-center text-slate-400">
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-xl bg-background/95 p-8">
+              <p className="font-display text-xl text-red-500 dark:text-red-400">
+                Session Expired
+              </p>
+              <p className="mt-2 text-center text-muted">
                 Your registration window has ended. Please restart to continue.
               </p>
               <GlowButton onClick={restart} className="mt-6">
@@ -147,15 +156,16 @@ export function RegistrationStepper() {
 
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="font-display text-lg text-white">Step 1 — Registration</h2>
-              <ol className="mb-4 space-y-2 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-xs text-slate-400">
+              <h2 className="font-display text-lg text-foreground">Step 1 — Registration</h2>
+              <ol className="mb-4 space-y-2 rounded-lg border border-theme-border bg-theme-card p-3 text-xs text-muted">
                 {admissionSteps.map((s) => (
                   <li key={s.step}>
-                    <span className="text-cyan-400">Step {s.step}:</span> {s.title} — {s.details}
+                    <span className="text-cyan-600 dark:text-cyan-400">Step {s.step}:</span>{" "}
+                    {s.title} — {s.details}
                   </li>
                 ))}
               </ol>
-              <h3 className="text-sm font-medium text-white">Your details</h3>
+              <h3 className="text-sm font-medium text-foreground">Your details</h3>
               <input className={inputClass} placeholder="Full name" />
               <input className={inputClass} type="email" placeholder="Email address" />
               <input className={inputClass} placeholder="Phone (+91)" />
@@ -170,27 +180,31 @@ export function RegistrationStepper() {
 
           {step === 2 && (
             <div className="space-y-4">
-              <h2 className="font-display text-lg text-white">Verification</h2>
-              <p className="text-sm text-slate-400">
+              <h2 className="font-display text-lg text-foreground">Verification</h2>
+              <p className="text-sm text-muted">
                 Enter the OTP sent to your registered email and phone.
               </p>
               <input className={inputClass} placeholder="6-digit OTP" maxLength={6} />
-              <input className={inputClass} type="file" />
-              <p className="text-xs text-slate-500">Upload ID proof (PDF/JPG, max 2MB)</p>
+              <div className="flex flex-col items-center rounded-xl border-2 border-dashed border-cyan-400/30 bg-cyan-500/5 p-8 text-center">
+                <CloudUpload className="mb-3 h-12 w-12 text-cyan-500 drop-shadow-[0_0_12px_rgba(34,211,238,0.5)]" />
+                <p className="text-sm font-medium text-foreground">Drag & drop ID proof here</p>
+                <p className="mt-1 text-xs text-muted">PDF or JPG, max 2MB</p>
+                <input className="mt-4 w-full max-w-xs text-sm text-muted" type="file" />
+              </div>
             </div>
           )}
 
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="font-display text-lg text-white">Payment</h2>
-              <p className="text-center text-3xl font-bold text-cyan-400">
+              <h2 className="font-display text-lg text-foreground">Payment</h2>
+              <p className="text-center text-3xl font-bold text-cyan-600 dark:text-cyan-400">
                 ₹{professionalCertFee.registrationFee.toLocaleString()}
               </p>
-              <p className="text-center text-sm text-slate-400">
+              <p className="text-center text-sm text-muted">
                 Registration fee (non-refundable) · Mock gateway in demo
               </p>
-              <div className="rounded-lg border border-white/10 bg-white/[0.02] p-4 text-sm text-slate-400">
-                <p className="font-medium text-white">{admissionBankDetails.bankName}</p>
+              <div className="rounded-lg border border-theme-border bg-theme-card p-4 text-sm text-muted">
+                <p className="font-medium text-foreground">{admissionBankDetails.bankName}</p>
                 <p>{admissionBankDetails.accountName}</p>
                 <p>A/C: {admissionBankDetails.accountNo}</p>
                 <p>IFSC: {admissionBankDetails.ifsc}</p>
@@ -218,4 +232,3 @@ export function RegistrationStepper() {
     </div>
   );
 }
-

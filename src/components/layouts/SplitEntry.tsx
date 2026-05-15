@@ -1,11 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import { Globe, GraduationCap } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import { gsap, registerGsap } from "@/lib/gsap";
+import { images } from "@/lib/images";
 import { siteConfig } from "@/data/site";
+import { Logo } from "@/components/ui/Logo";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export function SplitEntry() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,31 +66,40 @@ export function SplitEntry() {
   return (
     <div ref={containerRef} className="flex min-h-screen flex-col">
       <header className="absolute left-0 right-0 top-0 z-20 flex items-center justify-between px-6 py-5 md:px-10">
-        <div className="font-display text-lg font-bold tracking-tight text-white">
-          {siteConfig.name}
-          <span className="ml-2 text-xs font-normal text-cyan-400/80">IIT Guwahati</span>
+        <Logo href="/" showSubtitle imageClassName="h-10" />
+        <div className="flex items-center gap-4">
+          <p className="hidden text-xs text-muted md:block">{siteConfig.tagline}</p>
+          <ThemeToggle />
         </div>
-        <p className="hidden text-xs text-slate-500 md:block">{siteConfig.tagline}</p>
       </header>
 
       <div className="flex flex-1 flex-col md:flex-row">
         <Link
           ref={leftRef}
           href="/academy"
-          className="group relative flex flex-1 flex-col items-center justify-center border-b border-white/5 bg-slate-950/80 p-10 transition-colors md:border-b-0 md:border-r"
+          className="group relative flex flex-1 flex-col items-center justify-center overflow-hidden border-b border-theme-border bg-slate-950/80 p-10 transition-colors md:border-b-0 md:border-r"
           onMouseEnter={() => handleHover("left", true)}
           onMouseLeave={() => handleHover("left", false)}
         >
-          <Globe className="mb-6 h-16 w-16 text-cyan-400 transition-transform group-hover:scale-110" />
-          <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
-            The Academy
-          </h1>
-          <p className="mt-3 max-w-sm text-center text-slate-400">
-            I&apos;m exploring — courses, faculty, history &amp; discovery
-          </p>
-          <span className="mt-8 rounded-full border border-cyan-400/30 px-4 py-1.5 text-sm text-cyan-300">
-            Public site →
-          </span>
+          <Image
+            src={images.leftHemisphere}
+            alt=""
+            fill
+            className="object-cover opacity-40 transition-opacity group-hover:opacity-55 dark:opacity-50 dark:group-hover:opacity-65"
+            priority
+            aria-hidden
+          />
+          <div className="relative z-10 flex flex-col items-center">
+            <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
+              The Academy
+            </h1>
+            <p className="mt-3 max-w-sm text-center text-slate-300">
+              I&apos;m exploring — courses, faculty, history &amp; discovery
+            </p>
+            <span className="mt-8 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1.5 text-sm text-cyan-200">
+              Public site →
+            </span>
+          </div>
         </Link>
 
         <div
@@ -98,20 +110,29 @@ export function SplitEntry() {
         <Link
           ref={rightRef}
           href="/portal/login"
-          className="group relative flex flex-1 flex-col items-center justify-center bg-slate-900/80 p-10"
+          className="group relative flex flex-1 flex-col items-center justify-center overflow-hidden bg-slate-900/80 p-10"
           onMouseEnter={() => handleHover("right", true)}
           onMouseLeave={() => handleHover("right", false)}
         >
-          <GraduationCap className="mb-6 h-16 w-16 text-blue-400 transition-transform group-hover:scale-110" />
-          <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
-            The Portal
-          </h1>
-          <p className="mt-3 max-w-sm text-center text-slate-400">
-            I have an account — LMS, registration &amp; admin
-          </p>
-          <span className="mt-8 rounded-full border border-blue-400/30 px-4 py-1.5 text-sm text-blue-300">
-            Sign in →
-          </span>
+          <Image
+            src={images.rightHemisphere}
+            alt=""
+            fill
+            className="object-cover opacity-40 transition-opacity group-hover:opacity-55 dark:opacity-50 dark:group-hover:opacity-65"
+            priority
+            aria-hidden
+          />
+          <div className="relative z-10 flex flex-col items-center">
+            <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
+              The Portal
+            </h1>
+            <p className="mt-3 max-w-sm text-center text-slate-300">
+              I have an account — LMS, registration &amp; admin
+            </p>
+            <span className="mt-8 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-sm text-blue-200">
+              Sign in →
+            </span>
+          </div>
         </Link>
       </div>
     </div>
