@@ -13,9 +13,9 @@ export function MasonryGallery() {
     phase === "All" ? galleryItems : galleryItems.filter((g) => g.phase === phase);
 
   return (
-    <div>
-      <h1 className="font-display text-4xl font-bold text-white">Photo Gallery</h1>
-      <p className="mt-2 text-slate-400">Phase I &amp; II events and training sessions</p>
+    <div className="academy-container py-8 md:py-12">
+      <h1 className="font-display text-3xl font-bold text-foreground sm:text-4xl">Gallery</h1>
+      <p className="mt-2 text-muted">Phase I &amp; II events and training sessions</p>
 
       <div className="mb-8 mt-6 flex gap-2">
         {phases.map((p) => (
@@ -26,8 +26,8 @@ export function MasonryGallery() {
             className={cn(
               "rounded-full px-4 py-1.5 text-sm",
               phase === p
-                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-400/40"
-                : "border border-white/10 text-slate-400"
+                ? "border border-cyan-400/40 bg-cyan-500/15 text-cyan-700 dark:text-cyan-300"
+                : "border border-theme-border text-muted"
             )}
           >
             {p}
@@ -39,7 +39,7 @@ export function MasonryGallery() {
         {filtered.map((item) => (
           <div
             key={item.id}
-            className="mb-4 break-inside-avoid overflow-hidden rounded-xl border border-white/10"
+            className="mb-4 break-inside-avoid overflow-hidden rounded-xl border border-theme-border"
           >
             <div className="relative aspect-auto min-h-[160px] w-full">
               <Image

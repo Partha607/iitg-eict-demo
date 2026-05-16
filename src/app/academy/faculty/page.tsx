@@ -1,5 +1,5 @@
-import { FacultyDirectory } from "@/components/academy/FacultyDirectory";
+import { redirect } from "next/navigation";
 
-export default function FacultyPage() {
-  return <FacultyDirectory />;
+export default function FacultyRedirectPage() {
+  redirect("/academy/people");
 }

@@ -18,17 +18,17 @@
 :root,
 .light {
   color-scheme: light;
-  --background: #f1f5f9;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --card: rgba(255, 255, 255, 0.85);
-  --border: rgba(15, 23, 42, 0.12);
-  --nav-bg: rgba(255, 255, 255, 0.9);
-  --grid-line: rgba(15, 23, 42, 0.06);
-  --grid-glow-cyan: rgba(34, 211, 238, 0.08);
-  --grid-glow-blue: rgba(59, 130, 246, 0.06);
+  --background: #f8fafc;
+  --foreground: #0b1220;
+  --muted: #475569;
+  --card: #ffffff;
+  --border: rgba(15, 23, 42, 0.16);
+  --nav-bg: rgba(255, 255, 255, 0.96);
+  --grid-line: rgba(15, 23, 42, 0.08);
+  --grid-glow-cyan: rgba(8, 145, 178, 0.1);
+  --grid-glow-blue: rgba(37, 99, 235, 0.08);
   --scrollbar-track: #e2e8f0;
-  --scrollbar-thumb: #94a3b8;
+  --scrollbar-thumb: #64748b;
 }
 
 .dark {
@@ -70,8 +70,49 @@ body {
 }
 
 .glass-panel {
-  @apply rounded-xl border border-theme-border backdrop-blur-xl;
+  @apply rounded-xl border border-theme-border backdrop-blur-xl shadow-sm;
   background: var(--card);
+}
+
+.dark .glass-panel {
+  @apply shadow-none;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Full-bleed sections inside academy layout */
+.academy-bleed {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.academy-container {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6;
+}
+
+/* Vertical notice board ticker */
+@keyframes bulletin-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.bulletin-track {
+  animation: bulletin-scroll 28s linear infinite;
+}
+
+.bulletin-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bulletin-track {
+    animation: none;
+  }
 }
 
 .glow-cyan {

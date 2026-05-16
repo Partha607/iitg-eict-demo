@@ -17,10 +17,10 @@ export function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-white focus:border-cyan-400/50 focus:outline-none";
+    "w-full rounded-lg border border-theme-border bg-background px-4 py-3 text-foreground placeholder:text-muted focus:border-cyan-400/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/20";
 
   return (
-    <div className="space-y-12">
+    <div className="academy-container space-y-12 py-8 md:py-12">
     <div className="grid gap-8 lg:grid-cols-2">
       <div>
         <h1 className="font-display text-4xl font-bold text-white">Contact Us</h1>

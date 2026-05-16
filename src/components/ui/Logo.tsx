@@ -23,9 +23,9 @@ export function Logo({
       <Image
         src={images.logo}
         alt="E&ICT Academy IIT Guwahati"
-        width={140}
-        height={40}
-        className={cn("h-9 w-auto object-contain dark:brightness-110", imageClassName)}
+        width={200}
+        height={56}
+        className={cn("h-10 w-auto object-contain sm:h-11 dark:brightness-110", imageClassName)}
         priority
       />
       {showSubtitle && (

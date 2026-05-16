@@ -1,6 +1,15 @@
 {
-  "scrapedAt": "2026-05-15",
+  "scrapedAt": "2026-05-16",
   "method": "Firecrawl MCP (user-firecrawl-mcp)",
+  "referenceSite": {
+    "name": "E&ICT Academy IIT Roorkee",
+    "urls": [
+      "https://eict.iitr.ac.in/",
+      "https://eict.iitr.ac.in/about-us/",
+      "https://eict.iitr.ac.in/facilities/",
+      "https://eict.iitr.ac.in/contact-us/"
+    ]
+  },
   "urlsFromFile": 44,
   "sourcesSampled": [
     "https://eict.iitg.ac.in/index",
@@ -19,7 +28,9 @@
     "revampMap": "/academy/revamp",
     "about": "/academy/about",
     "courses": "/academy/courses",
+    "people": "/academy/people",
     "faculty": "/academy/faculty",
+    "infrastructure": "/academy/infrastructure",
     "contactFaq": "/academy/contact",
     "portalRegister": "/portal/register",
     "portalLms": "/portal/lms"

@@ -1,5 +1,5 @@
 import { AcademyNav } from "@/components/layouts/AcademyNav";
-import { siteConfig } from "@/data/site";
+import { AcademyFooter } from "@/components/layouts/AcademyFooter";
 
 export default function AcademyLayout({
   children,
@@ -9,15 +9,8 @@ export default function AcademyLayout({
   return (
     <>
       <AcademyNav />
-      <main className="mx-auto min-h-[calc(100vh-4rem)] max-w-7xl px-4 py-10 md:px-6">
-        {children}
-      </main>
-      <footer className="border-t border-theme-border py-8 text-center text-sm text-muted">
-        <p>{siteConfig.fullName}</p>
-        <p className="mt-1">
-          {siteConfig.contact.email} · {siteConfig.contact.phoneOffice}
-        </p>
-      </footer>
+      <main className="min-h-[calc(100vh-4rem)] overflow-x-hidden">{children}</main>
+      <AcademyFooter />
     </>
   );
 }
