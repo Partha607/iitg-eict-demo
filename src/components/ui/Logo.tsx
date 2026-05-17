@@ -9,7 +9,7 @@ type LogoProps = {
   imageClassName?: string;
 };
 
-/** Main site logo — defaults to a large, legible size sitewide */
+/** Main site logo - defaults to a large, legible size sitewide */
 export function Logo({ href = "/", className, imageClassName }: LogoProps) {
   const inner = (
     <Image

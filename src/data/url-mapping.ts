@@ -1,4 +1,4 @@
-/** Maps legacy EICT URLs (from urls.txt) to consolidated demo routes — for stakeholder revamp walkthrough */
+/** Maps legacy EICT URLs (from urls.txt) to consolidated demo routes - for stakeholder revamp walkthrough */
 export type UrlMapping = {
   legacyUrl: string;
   label: string;

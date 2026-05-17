@@ -62,7 +62,7 @@ export function EnquiryKanban() {
           Enquiry Management
         </h1>
         <p className="text-slate-400">
-          Omnichannel pipeline — WhatsApp &amp; Email indicators (demo)
+          Omnichannel pipeline - WhatsApp &amp; Email indicators (demo)
         </p>
       </header>
 

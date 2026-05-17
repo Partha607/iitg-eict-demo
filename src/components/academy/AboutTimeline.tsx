@@ -56,7 +56,7 @@ export function AboutTimeline() {
     <>
       <PageHero
         src={images.heroAbout}
-        alt="E&ICT Academy — technology and IIT Guwahati campus"
+        alt="E&ICT Academy - technology and IIT Guwahati campus"
         title="About E&ICT Academy"
         subtitle={scrapedSynopsis}
         minHeight="min-h-[240px] sm:min-h-[300px] md:min-h-[380px]"
@@ -146,7 +146,7 @@ export function AboutTimeline() {
           </div>
           <p className="mt-3 text-xs text-muted">
             New FDPs developed: {newFdpDevelopment.electronics} Electronics,{" "}
-            {newFdpDevelopment.it} IT, {newFdpDevelopment.ict} ICT — total{" "}
+            {newFdpDevelopment.it} IT, {newFdpDevelopment.ict} ICT - total{" "}
             {newFdpDevelopment.total}
           </p>
         </GlassCard>

@@ -25,7 +25,7 @@ export const timeline = [
     year: "2023",
     title: "Professional Certifications",
     description:
-      "Online certifications in Data Science, AI/ML, Big Data, Cloud, Full Stack, UI/UX, and VLSI — 2,000+ professionals trained.",
+      "Online certifications in Data Science, AI/ML, Big Data, Cloud, Full Stack, UI/UX, and VLSI - 2,000+ professionals trained.",
   },
   {
     year: "2026",
@@ -80,7 +80,7 @@ export const neBenefitsNote =
   "Faculty and students of the above institutes are trained through basic, advanced, and research-oriented programmes. Students are connected to industry partners; local industry representatives receive training in emerging technology areas.";
 
 export const edTechNote =
-  "Effective November 1, 2025, E&ICT has discontinued all courses offered in collaboration with external EduTech partners — programmes are now delivered directly by IIT Guwahati Academy.";
+  "Effective November 1, 2025, E&ICT has discontinued all courses offered in collaboration with external EduTech partners - programmes are now delivered directly by IIT Guwahati Academy.";
 
 export const whyEnrolReasons = [
   {

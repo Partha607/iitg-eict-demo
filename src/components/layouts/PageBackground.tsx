@@ -9,7 +9,7 @@ type PageBackgroundProps = {
   className?: string;
   /** Image layer strength (higher = more visible sketch) */
   opacity?: number;
-  /** Scrim over sketches — lower keeps backgrounds more visible */
+  /** Scrim over sketches - lower keeps backgrounds more visible */
   scrimStrength?: "light" | "medium" | "footer";
 };
 

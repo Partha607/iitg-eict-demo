@@ -47,7 +47,7 @@ export function PeopleDirectory() {
     <div className="academy-container py-8 md:py-12">
       <h1 className="font-display text-3xl font-bold text-foreground sm:text-4xl">People</h1>
       <p className="mt-2 max-w-2xl text-sm text-muted sm:text-base">
-        Team members grouped by designation — administrative leadership, project staff, and
+        Team members grouped by designation - administrative leadership, project staff, and
         support personnel at E&ICT Academy IIT Guwahati.
       </p>
 

@@ -23,7 +23,7 @@ export const lmsCourses: LmsCourse[] = [
   },
   {
     id: "c3",
-    title: "Classical ML — FDP Module 3",
+    title: "Classical ML - FDP Module 3",
     progress: 91,
     instructor: "Guest Faculty",
     nextClass: "May 15, 11:00 AM",
@@ -32,7 +32,7 @@ export const lmsCourses: LmsCourse[] = [
 
 export const announcements = [
   {
-    title: "Assignment 3 due — Embedded Systems",
+    title: "Assignment 3 due - Embedded Systems",
     date: "May 15, 2026",
     urgent: true,
   },

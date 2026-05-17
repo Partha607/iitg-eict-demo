@@ -79,9 +79,9 @@ export const studentAnnouncements = [
 ];
 
 export const studentActivity = [
-  { title: "Assignment submitted — Digital Signal Processing", time: "2 hours ago", type: "success" },
-  { title: "New material added — Machine Learning", time: "Yesterday", type: "info" },
-  { title: "Quiz graded — Embedded Systems", time: "2 days ago", type: "grade" },
+  { title: "Assignment submitted - Digital Signal Processing", time: "2 hours ago", type: "success" },
+  { title: "New material added - Machine Learning", time: "Yesterday", type: "info" },
+  { title: "Quiz graded - Embedded Systems", time: "2 days ago", type: "grade" },
 ];
 
 export const quickLinks = [
@@ -108,8 +108,8 @@ export const staffCourses = [
 ];
 
 export const staffLiveClasses = [
-  { title: "DSP — Lecture 12", date: "May 16, 2026", time: "10:00 AM" },
-  { title: "ML — Tutorial 4", date: "May 17, 2026", time: "2:00 PM" },
+  { title: "DSP - Lecture 12", date: "May 16, 2026", time: "10:00 AM" },
+  { title: "ML - Tutorial 4", date: "May 17, 2026", time: "2:00 PM" },
   { title: "VLSI Lab Session", date: "May 18, 2026", time: "9:00 AM" },
 ];
 

@@ -97,7 +97,7 @@ export function RegistrationStepper() {
       <div className="mb-8 text-center">
         <h1 className="font-display text-3xl font-bold text-foreground">Course Registration</h1>
         <p className="mt-2 text-muted">
-          Mirrors courses.eictiitg.com/admission.html — registration fee ₹
+          Mirrors courses.eictiitg.com/admission.html - registration fee ₹
           {professionalCertFee.registrationFee} · session TTL {REGISTRATION_TTL_MINUTES} min
         </p>
         {getRegistrationSession() && !expired && (
@@ -156,12 +156,12 @@ export function RegistrationStepper() {
 
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="font-display text-lg text-foreground">Step 1 — Registration</h2>
+              <h2 className="font-display text-lg text-foreground">Step 1 - Registration</h2>
               <ol className="mb-4 space-y-2 rounded-lg border border-theme-border bg-theme-card p-3 text-xs text-muted">
                 {admissionSteps.map((s) => (
                   <li key={s.step}>
                     <span className="text-cyan-600 dark:text-cyan-400">Step {s.step}:</span>{" "}
-                    {s.title} — {s.details}
+                    {s.title} - {s.details}
                   </li>
                 ))}
               </ol>

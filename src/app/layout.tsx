@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "E&ICT Academy | IIT Guwahati",
   description:
-    "Electronics and ICT Academy, IIT Guwahati — Training, research, and innovation for North-East India.",
+    "Electronics and ICT Academy, IIT Guwahati - Training, research, and innovation for North-East India.",
   icons: {
     icon: "/images/logo.png",
     apple: "/images/logo.png",

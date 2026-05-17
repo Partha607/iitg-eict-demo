@@ -1,4 +1,4 @@
-/** Local brand assets — served from /public/images */
+/** Local brand assets - served from /public/images */
 export const images = {
   logo: "/images/logo.png",
   academy: "/images/academy.png",

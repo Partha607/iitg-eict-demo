@@ -1,4 +1,4 @@
-# Deploy — EICT Academy Demo
+# Deploy - EICT Academy Demo
 
 ## Local development
 
@@ -21,7 +21,7 @@ npm start
 1. Push this repo to GitHub.
 2. Import project in [vercel.com](https://vercel.com).
 3. Framework preset: **Next.js**
-4. Deploy — no environment variables required for this frontend-only demo.
+4. Deploy - no environment variables required for this frontend-only demo.
 
 ## Netlify
 

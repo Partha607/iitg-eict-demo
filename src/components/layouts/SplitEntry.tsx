@@ -94,7 +94,7 @@ export function SplitEntry() {
               The Academy
             </h1>
             <p className="mt-3 max-w-sm text-center text-slate-300">
-              I&apos;m exploring — courses, faculty, history &amp; discovery
+              I&apos;m exploring - courses, faculty, history &amp; discovery
             </p>
             <span className="mt-8 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1.5 text-sm text-cyan-200">
               Public site →
@@ -127,7 +127,7 @@ export function SplitEntry() {
               The Portal
             </h1>
             <p className="mt-3 max-w-sm text-center text-slate-300">
-              I have an account — LMS, registration &amp; admin
+              I have an account - LMS, registration &amp; admin
             </p>
             <span className="mt-8 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-sm text-blue-200">
               Sign in →

@@ -22,7 +22,7 @@ export const committees: CommitteeGroup[] = [
     members: [
       "Chairman (Director, IIT Guwahati)",
       "Renowned experts from academia and industry (being finalized)",
-      "Representative of State — Directorate of Higher Education (being finalized)",
+      "Representative of State - Directorate of Higher Education (being finalized)",
       "Representative of ESSC, TSSC, IT-ITeS Sector Skills Council (being finalized)",
       "Representative of State Govts. of North East Region",
       "Group Coordinator (HRD), MeitY",

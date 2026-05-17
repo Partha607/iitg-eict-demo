@@ -17,7 +17,7 @@ type RoleAvatarProps = {
   showRing?: boolean;
 };
 
-/** Stylized profile badge — not a photo placeholder */
+/** Stylized profile badge - not a photo placeholder */
 export function RoleAvatar({
   role,
   size = "md",

@@ -21,7 +21,7 @@ export function RevampMap() {
       <div className="mb-8 text-center">
         <h1 className="font-display text-4xl font-bold text-white">URL Consolidation Map</h1>
         <p className="mx-auto mt-3 max-w-2xl text-slate-400">
-          Every legacy page from urls.txt maps to a single route in this demo — showing how
+          Every legacy page from urls.txt maps to a single route in this demo - showing how
           40+ scattered URLs become a streamlined Academy + Portal architecture.
         </p>
       </div>

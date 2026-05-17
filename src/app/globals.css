@@ -32,7 +32,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* Old Money — light theme */
+/* Old Money - light theme */
 :root,
 .light {
   color-scheme: light;
@@ -56,7 +56,7 @@
   --input: rgba(28, 25, 20, 0.12);
   --ring: #8b6914;
   --nav-bg: rgba(255, 253, 247, 0.94);
-  /* E · ICT — Electronics · Information Technology · Communication */
+  /* E · ICT - Electronics · Information Technology · Communication */
   --eict-electronics: rgba(184, 134, 11, 0.45);
   --eict-it: rgba(14, 116, 144, 0.38);
   --eict-communication: rgba(91, 33, 182, 0.32);
@@ -64,7 +64,7 @@
   --scrollbar-thumb: #8b7355;
 }
 
-/* Mid-grey / slate dark theme — elevated surfaces, softened contrast (not pure black) */
+/* Mid-grey / slate dark theme - elevated surfaces, softened contrast (not pure black) */
 .dark {
   color-scheme: dark;
   --background: #3d4a5c;
@@ -128,7 +128,7 @@ textarea {
   font-size: inherit;
 }
 
-/* E · ICT tri-domain ambient background (no line grid — gradients only) */
+/* E · ICT tri-domain ambient background (no line grid - gradients only) */
 .eict-bg {
   background-color: var(--background);
   background-image:

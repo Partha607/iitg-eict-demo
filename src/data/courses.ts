@@ -82,7 +82,7 @@ export const courses: Course[] = [
     domain: "Cybersecurity",
     duration: "3 weeks",
     mode: "Hybrid",
-    description: "Threat modeling, incident response — tailored for government & defense partners.",
+    description: "Threat modeling, incident response - tailored for government & defense partners.",
     size: "medium",
   },
   {
@@ -122,7 +122,7 @@ export const courses: Course[] = [
   },
   {
     id: "vlsi-adv",
-    title: "Advanced VLSI — Physical Design",
+    title: "Advanced VLSI - Physical Design",
     phase: "Phase II",
     status: "Upcoming",
     domain: "VLSI",
@@ -150,7 +150,7 @@ export const courses: Course[] = [
     domain: "AI/ML",
     duration: "1 week",
     mode: "Online",
-    description: "Faculty Development Programme — registration open for NE institutions.",
+    description: "Faculty Development Programme - registration open for NE institutions.",
     size: "small",
   },
 ];

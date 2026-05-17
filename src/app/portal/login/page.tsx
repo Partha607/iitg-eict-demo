@@ -39,7 +39,7 @@ export default function PortalLoginPage() {
           <div className="mb-6">
             <h1 className="font-display text-3xl font-bold text-foreground">Portal Login</h1>
             <p className="mt-1 text-base text-muted-foreground">
-              Demo sign-in — choose your role below
+              Demo sign-in - choose your role below
             </p>
           </div>
 

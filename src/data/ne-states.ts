@@ -23,7 +23,7 @@ export const neStates: NeState[] = [
     name: "Assam",
     capital: "Dispur",
     description:
-      "Largest outreach footprint in the region — engineering colleges, IIT Guwahati host institute, and industry partnerships for hands-on training.",
+      "Largest outreach footprint in the region - engineering colleges, IIT Guwahati host institute, and industry partnerships for hands-on training.",
     accent: "#3b82f6",
     image: "/images/assam.jpg",
   },

@@ -1,4 +1,4 @@
-/** Lightweight desk illustration for staff welcome — no raster screenshot */
+/** Lightweight desk illustration for staff welcome - no raster screenshot */
 export function WelcomeIllustration() {
   return (
     <svg

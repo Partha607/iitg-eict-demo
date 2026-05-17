@@ -140,7 +140,7 @@ export function BentoCourseGrid() {
 
       <GlassCard className="mt-12">
         <h2 className="font-display text-lg text-foreground">Phase-II Course Domains</h2>
-        <p className="mt-1 text-sm text-muted">From eict.iitg.ac.in — 20 focus areas</p>
+        <p className="mt-1 text-sm text-muted">From eict.iitg.ac.in - 20 focus areas</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {phase2Domains.map((d) => (
             <span
@@ -185,7 +185,7 @@ export function BentoCourseGrid() {
             ₹{professionalCertFee.totalFourSemesters.toLocaleString()}
           </p>
           <p className="text-xs text-muted">
-            4 semesters × ₹{professionalCertFee.perSemester.toLocaleString()} — courses.eictiitg.com
+            4 semesters × ₹{professionalCertFee.perSemester.toLocaleString()} - courses.eictiitg.com
           </p>
           <ul className="mt-4 space-y-1 text-xs text-muted">
             {scrapedProfessionalDomains.map((d) => (

@@ -26,7 +26,7 @@ export function FacultyDirectory() {
     <div>
       <h1 className="font-display text-4xl font-bold text-foreground">Faculty & Team</h1>
       <p className="mt-2 text-muted">
-        Administrative, board, team, and associate faculty — consolidated directory
+        Administrative, board, team, and associate faculty - consolidated directory
       </p>
 
       <div className="mb-8 mt-6 flex flex-wrap gap-2">
@@ -93,7 +93,7 @@ export function FacultyDirectory() {
           Governance &amp; Committees
         </h2>
         <p className="text-sm text-muted">
-          From eict.iitg.ac.in board committee page — consolidated under Faculty
+          From eict.iitg.ac.in board committee page - consolidated under Faculty
         </p>
         {committees.map((c) => (
           <GlassCard key={c.title}>
