@@ -7,36 +7,25 @@ type LogoProps = {
   href?: string;
   className?: string;
   imageClassName?: string;
-  showSubtitle?: boolean;
-  subtitle?: string;
 };
 
-export function Logo({
-  href = "/",
-  className,
-  imageClassName,
-  showSubtitle = false,
-  subtitle = "IIT Guwahati",
-}: LogoProps) {
+/** Main site logo — defaults to a large, legible size sitewide */
+export function Logo({ href = "/", className, imageClassName }: LogoProps) {
   const inner = (
-    <>
-      <Image
-        src={images.logo}
-        alt="E&ICT Academy IIT Guwahati"
-        width={200}
-        height={56}
-        className={cn("h-10 w-auto object-contain sm:h-11 dark:brightness-110", imageClassName)}
-        priority
-      />
-      {showSubtitle && (
-        <span className="hidden text-xs font-normal text-cyan-600 dark:text-cyan-400/80 sm:inline">
-          {subtitle}
-        </span>
+    <Image
+      src={images.logo}
+      alt="Electronics & ICT Academy"
+      width={360}
+      height={96}
+      className={cn(
+        "h-14 w-auto max-w-[min(100%,20rem)] object-contain object-left sm:h-16 md:h-[4.5rem] lg:h-20 dark:brightness-110",
+        imageClassName
       )}
-    </>
+      priority
+    />
   );
 
-  const wrapClass = cn("flex items-center gap-2", className);
+  const wrapClass = cn("inline-flex items-center", className);
 
   if (href) {
     return (

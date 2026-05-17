@@ -3,83 +3,159 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-source-sans);
   --color-cyan-glow: #22d3ee;
   --color-obsidian: #020617;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-theme-card: var(--card);
   --color-theme-border: var(--border);
   --color-nav: var(--nav-bg);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Old Money — light theme */
 :root,
 .light {
   color-scheme: light;
-  --background: #f8fafc;
-  --foreground: #0b1220;
-  --muted: #475569;
-  --card: #ffffff;
-  --border: rgba(15, 23, 42, 0.16);
-  --nav-bg: rgba(255, 255, 255, 0.96);
-  --grid-line: rgba(15, 23, 42, 0.08);
-  --grid-glow-cyan: rgba(8, 145, 178, 0.1);
-  --grid-glow-blue: rgba(37, 99, 235, 0.08);
-  --scrollbar-track: #e2e8f0;
-  --scrollbar-thumb: #64748b;
+  --radius: 0.625rem;
+  --background: #f6f1e8;
+  --foreground: #1c1914;
+  --muted: #3d3830;
+  --muted-foreground: #3d3830;
+  --card: #fffdf7;
+  --card-foreground: #1c1914;
+  --popover: #fffdf7;
+  --popover-foreground: #1c1914;
+  --primary: #2f4538;
+  --primary-foreground: #f6f1e8;
+  --secondary: #ebe4d6;
+  --secondary-foreground: #1c1914;
+  --accent: #8b6914;
+  --accent-foreground: #1c1914;
+  --destructive: #9f1239;
+  --border: rgba(28, 25, 20, 0.14);
+  --input: rgba(28, 25, 20, 0.12);
+  --ring: #8b6914;
+  --nav-bg: rgba(255, 253, 247, 0.94);
+  /* E · ICT — Electronics · Information Technology · Communication */
+  --eict-electronics: rgba(184, 134, 11, 0.45);
+  --eict-it: rgba(14, 116, 144, 0.38);
+  --eict-communication: rgba(91, 33, 182, 0.32);
+  --scrollbar-track: #ebe4d6;
+  --scrollbar-thumb: #8b7355;
 }
 
+/* Mid-grey / slate dark theme — elevated surfaces, softened contrast (not pure black) */
 .dark {
   color-scheme: dark;
-  --background: #020617;
-  --foreground: #f1f5f9;
-  --muted: #94a3b8;
-  --card: rgba(255, 255, 255, 0.05);
-  --border: rgba(255, 255, 255, 0.1);
-  --nav-bg: rgba(2, 6, 23, 0.85);
-  --grid-line: rgba(148, 163, 184, 0.03);
-  --grid-glow-cyan: rgba(34, 211, 238, 0.12);
-  --grid-glow-blue: rgba(59, 130, 246, 0.08);
-  --scrollbar-track: #0f172a;
-  --scrollbar-thumb: #334155;
+  --background: #3d4a5c;
+  --foreground: #e8eaed;
+  --muted: #b8c0cc;
+  --muted-foreground: #b8c0cc;
+  --card: rgba(30, 41, 59, 0.72);
+  --card-foreground: #e8eaed;
+  --popover: #475569;
+  --popover-foreground: #e8eaed;
+  --primary: #5eead4;
+  --primary-foreground: #1e293b;
+  --secondary: rgba(255, 255, 255, 0.1);
+  --secondary-foreground: #e8eaed;
+  --accent: rgba(94, 234, 212, 0.18);
+  --accent-foreground: #e8eaed;
+  --destructive: #fca5a5;
+  --border: rgba(255, 255, 255, 0.14);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #5eead4;
+  --nav-bg: rgba(51, 65, 85, 0.92);
+  --eict-electronics: rgba(251, 191, 36, 0.22);
+  --eict-it: rgba(94, 234, 212, 0.24);
+  --eict-communication: rgba(167, 139, 250, 0.2);
+  --scrollbar-track: #475569;
+  --scrollbar-thumb: #64748b;
 }
 
 html {
   @apply bg-background text-foreground;
+  scroll-behavior: smooth;
 }
 
 body {
   @apply min-h-screen antialiased;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
 }
 
 .font-display {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
-.grid-bg {
+.dark .font-display {
+  font-family: var(--font-space-grotesk), var(--font-source-sans), system-ui, sans-serif;
+}
+
+/* Readable secondary text sitewide */
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+/* Slightly larger UI controls for accessibility */
+button,
+input,
+select,
+textarea {
+  font-size: inherit;
+}
+
+/* E · ICT tri-domain ambient background (no line grid — gradients only) */
+.eict-bg {
   background-color: var(--background);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, var(--grid-glow-cyan), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 50%, var(--grid-glow-blue), transparent),
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+    radial-gradient(ellipse 90% 70% at 0% 0%, var(--eict-electronics), transparent 62%),
+    radial-gradient(ellipse 85% 65% at 100% 8%, var(--eict-it), transparent 58%),
+    radial-gradient(ellipse 95% 75% at 50% 100%, var(--eict-communication), transparent 65%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .glass-panel {
   @apply rounded-xl border border-theme-border backdrop-blur-xl shadow-sm;
   background: var(--card);
+  color: var(--card-foreground);
 }
 
 .dark .glass-panel {
   @apply shadow-none;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(30, 41, 59, 0.55);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Full-bleed sections inside academy layout */
+.light .glass-panel {
+  background: rgba(255, 253, 247, 0.82);
+}
+
 .academy-bleed {
   width: 100vw;
   max-width: 100vw;
@@ -91,7 +167,10 @@ body {
   @apply mx-auto w-full max-w-7xl px-4 sm:px-6;
 }
 
-/* Vertical notice board ticker */
+.academy-nav-container {
+  @apply mx-auto w-full max-w-[90rem] px-4 sm:px-8 lg:px-10;
+}
+
 @keyframes bulletin-scroll {
   0% {
     transform: translateY(0);
@@ -110,6 +189,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .bulletin-track {
     animation: none;
   }
@@ -119,8 +202,16 @@ body {
   box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
 }
 
+.light .glow-cyan {
+  box-shadow: 0 0 32px rgba(139, 105, 20, 0.12);
+}
+
 .btn-gradient-primary {
   background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+}
+
+.light .btn-gradient-primary {
+  background: linear-gradient(135deg, #2f4538 0%, #0e7490 100%);
 }
 
 .status-glow-published {
@@ -169,5 +260,22 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
+  background: var(--accent);
+}
+
+/* Pencil-sketch backgrounds: invert line art in dark mode for visibility on slate */
+.sketch-bg-image {
+  transition: filter 0.35s ease, opacity 0.35s ease;
+}
+
+.dark .sketch-bg-image {
+  filter: invert(1) brightness(0.95) contrast(0.95);
+}
+
+.sketch-hero-image {
+  transition: filter 0.35s ease;
+}
+
+.dark .sketch-hero-image {
+  filter: invert(1) brightness(0.88) contrast(0.9);
 }

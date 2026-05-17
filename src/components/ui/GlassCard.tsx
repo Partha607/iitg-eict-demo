@@ -1,3 +1,4 @@
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 type GlassCardProps = {
@@ -9,8 +10,11 @@ type GlassCardProps = {
 
 export function GlassCard({ children, className, glow, style }: GlassCardProps) {
   return (
-    <div className={cn("glass-panel p-6", glow && "glow-cyan", className)} style={style}>
+    <Card
+      className={cn("glass-panel border-theme-border p-6 shadow-sm", glow && "glow-cyan", className)}
+      style={style}
+    >
       {children}
-    </div>
+    </Card>
   );
 }

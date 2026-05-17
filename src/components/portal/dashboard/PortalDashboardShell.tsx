@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { images } from "@/lib/images";
+import { Logo } from "@/components/ui/Logo";
 import { dashboardNav } from "@/data/dashboard-mock";
 import { Bell, ChevronDown, LogOut, Mail, Search, DashboardIcon } from "./DashboardIcons";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
@@ -27,16 +26,11 @@ export function PortalDashboardShell({
       {/* Sidebar */}
       <aside className="hidden w-[220px] shrink-0 flex-col bg-[#0b1f3f] text-white lg:flex">
         <div className="border-b border-white/10 px-4 py-5">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src={images.logo}
-              alt="IIT Guwahati"
-              width={36}
-              height={36}
-              className="h-9 w-9 rounded-full object-contain brightness-110"
-            />
-            <span className="text-sm font-semibold leading-tight">IIT Guwahati</span>
-          </Link>
+          <Logo
+            href="/"
+            imageClassName="max-w-[200px] brightness-110 contrast-110"
+            className="[&_img]:h-12 [&_img]:sm:h-14"
+          />
         </div>
         <nav className="flex-1 space-y-0.5 overflow-y-auto px-2 py-4">
           {dashboardNav.map((item, i) => {

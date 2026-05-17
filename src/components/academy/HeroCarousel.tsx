@@ -25,78 +25,80 @@ export function HeroCarousel() {
   const slide = slides[index];
 
   return (
-    <section className="academy-bleed relative min-h-[280px] w-full sm:min-h-[360px] md:min-h-[440px] lg:min-h-[520px]">
-      {slides.map((s, i) => (
-        <div
-          key={s.src}
-          className={cn(
-            "absolute inset-0 transition-opacity duration-700",
-            i === index ? "opacity-100" : "pointer-events-none opacity-0"
-          )}
-        >
-          <Image
-            src={s.src}
-            alt={s.alt}
-            fill
-            className="object-cover"
-            priority={i === 0}
-            sizes="100vw"
-          />
-        </div>
-      ))}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/50 to-transparent" />
-
-      <div className="absolute inset-0 flex items-center">
-        <div className="academy-container w-full py-10 md:py-16">
-          <p className="text-xs font-medium uppercase tracking-widest text-cyan-600 dark:text-cyan-400">
-            IIT Guwahati · MeitY Initiative
-          </p>
-          <h1 className="mt-2 max-w-2xl font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
-            {slide.title}
-          </h1>
-          <p className="mt-3 max-w-xl text-sm text-muted sm:text-base md:text-lg">
-            {slide.subtitle}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <GlowButton href="/academy/courses">Explore Courses</GlowButton>
-            <GlowButton href="/portal/register" variant="secondary">
-              Register Online
-            </GlowButton>
-          </div>
-        </div>
-      </div>
-
-      <button
-        type="button"
-        onClick={() => go(-1)}
-        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full border border-theme-border bg-nav/80 p-2 text-foreground backdrop-blur hover:bg-cyan-500/10 sm:left-4"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft size={20} />
-      </button>
-      <button
-        type="button"
-        onClick={() => go(1)}
-        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full border border-theme-border bg-nav/80 p-2 text-foreground backdrop-blur hover:bg-cyan-500/10 sm:right-4"
-        aria-label="Next slide"
-      >
-        <ChevronRight size={20} />
-      </button>
-
-      <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-        {slides.map((_, i) => (
-          <button
-            key={slides[i].src}
-            type="button"
-            onClick={() => setIndex(i)}
+    <div className="flex h-full min-h-[320px] flex-col gap-4 lg:min-h-[420px]">
+      <div className="relative aspect-[4/3] w-full max-h-[420px] overflow-hidden rounded-xl border border-theme-border bg-muted/20 shadow-sm">
+        {slides.map((s, i) => (
+          <div
+            key={s.src}
             className={cn(
-              "h-2 rounded-full transition-all",
-              i === index ? "w-8 bg-cyan-500" : "w-2 bg-foreground/30"
+              "absolute inset-0 transition-opacity duration-700",
+              i === index ? "opacity-100" : "pointer-events-none opacity-0"
             )}
-            aria-label={`Go to slide ${i + 1}`}
-          />
+          >
+            <Image
+              src={s.src}
+              alt={s.alt}
+              fill
+              className="object-cover object-center"
+              priority={i === 0}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
         ))}
+
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/35 to-transparent"
+          aria-hidden
+        />
+
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/30 bg-black/40 p-2 text-white backdrop-blur hover:bg-black/55"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft size={20} />
+        </button>
+        <button
+          type="button"
+          onClick={() => go(1)}
+          className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/30 bg-black/40 p-2 text-white backdrop-blur hover:bg-black/55"
+          aria-label="Next slide"
+        >
+          <ChevronRight size={20} />
+        </button>
+
+        <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={slides[i].src}
+              type="button"
+              onClick={() => setIndex(i)}
+              className={cn(
+                "h-2 rounded-full transition-all",
+                i === index ? "w-7 bg-white" : "w-2 bg-white/50"
+              )}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
-    </section>
+
+      <div className="flex flex-1 flex-col justify-center rounded-xl border border-theme-border bg-card/80 p-4 backdrop-blur-sm sm:p-5">
+        <p className="text-sm font-semibold uppercase tracking-wide text-primary dark:text-cyan-400">
+          IIT Guwahati · MeitY Initiative
+        </p>
+        <h1 className="mt-2 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl">
+          {slide.title}
+        </h1>
+        <p className="mt-2 text-base leading-relaxed text-foreground/90">{slide.subtitle}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <GlowButton href="/academy/courses">Explore Courses</GlowButton>
+          <GlowButton href="/portal/register" variant="secondary">
+            Register Online
+          </GlowButton>
+        </div>
+      </div>
+    </div>
   );
 }

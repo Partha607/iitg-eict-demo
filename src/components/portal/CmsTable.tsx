@@ -37,10 +37,10 @@ export function CmsTable() {
     <div className="p-4 md:p-8">
       <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-display text-2xl font-bold text-white md:text-3xl">
+          <h1 className="font-display text-2xl font-bold text-foreground md:text-3xl">
             Content Management
           </h1>
-          <p className="text-slate-400">Manage pages, courses, and news</p>
+          <p className="text-base text-muted-foreground">Manage pages, courses, and news</p>
         </div>
         <GlowButton onClick={() => setModalOpen(true)}>
           <Plus size={18} /> Create Content
@@ -48,15 +48,15 @@ export function CmsTable() {
       </header>
 
       <GlassCard className="overflow-x-auto p-0">
-        <table ref={tableRef} className="w-full min-w-[640px] text-left text-sm">
+        <table ref={tableRef} className="w-full min-w-[640px] text-left text-base">
           <thead>
-            <tr className="border-b border-white/10 text-slate-500">
-              <th className="px-6 py-4">Title</th>
-              <th className="px-6 py-4">Type</th>
-              <th className="px-6 py-4">Author</th>
-              <th className="px-6 py-4">Updated</th>
-              <th className="px-6 py-4">Status</th>
-              <th className="px-6 py-4">Actions</th>
+            <tr className="border-b border-theme-border text-muted-foreground">
+              <th className="px-6 py-4 font-semibold">Title</th>
+              <th className="px-6 py-4 font-semibold">Type</th>
+              <th className="px-6 py-4 font-semibold">Author</th>
+              <th className="px-6 py-4 font-semibold">Updated</th>
+              <th className="px-6 py-4 font-semibold">Status</th>
+              <th className="px-6 py-4 font-semibold">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -64,12 +64,12 @@ export function CmsTable() {
               <tr
                 key={row.id}
                 data-id={row.id}
-                className="border-b border-white/5 transition-colors"
+                className="border-b border-theme-border/60 transition-colors"
               >
-                <td className="px-6 py-4 font-medium text-white">{row.title}</td>
-                <td className="px-6 py-4 text-slate-400">{row.type}</td>
-                <td className="px-6 py-4 text-slate-400">{row.author}</td>
-                <td className="px-6 py-4 text-slate-500">{row.updated}</td>
+                <td className="px-6 py-4 font-medium text-foreground">{row.title}</td>
+                <td className="px-6 py-4 text-foreground/85">{row.type}</td>
+                <td className="px-6 py-4 text-foreground/85">{row.author}</td>
+                <td className="px-6 py-4 text-muted-foreground">{row.updated}</td>
                 <td className="px-6 py-4">
                   <StatusBadge status={row.status} />
                 </td>
@@ -77,14 +77,14 @@ export function CmsTable() {
                   <div className="flex gap-2">
                     <button
                       type="button"
-                      className="rounded p-1.5 text-slate-400 hover:bg-white/5 hover:text-white"
+                      className="rounded p-1.5 text-muted-foreground hover:bg-accent/10 hover:text-foreground"
                       aria-label="Edit"
                     >
                       <Pencil size={16} />
                     </button>
                     <button
                       type="button"
-                      className="rounded p-1.5 text-slate-400 hover:bg-white/5 hover:text-white"
+                      className="rounded p-1.5 text-muted-foreground hover:bg-accent/10 hover:text-foreground"
                       aria-label="Preview"
                     >
                       <Eye size={16} />
@@ -92,7 +92,7 @@ export function CmsTable() {
                     <button
                       type="button"
                       onClick={() => togglePublish(row.id)}
-                      className="rounded px-2 py-1 text-xs text-cyan-400 hover:bg-cyan-500/10"
+                      className="rounded px-2 py-1 text-sm font-medium text-cyan-700 hover:bg-cyan-500/10 dark:text-cyan-400"
                     >
                       {row.status === "Draft" ? "Publish" : "Unpublish"}
                     </button>
@@ -107,13 +107,13 @@ export function CmsTable() {
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
           <GlassCard className="w-full max-w-md">
-            <h2 className="font-display text-lg text-white">Create Content</h2>
+            <h2 className="font-display text-lg font-semibold text-foreground">Create Content</h2>
             <div className="mt-4 space-y-3">
               <input
-                className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white"
+                className="w-full rounded-lg border border-input bg-background px-3 py-2 text-foreground"
                 placeholder="Title"
               />
-              <select className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white">
+              <select className="w-full rounded-lg border border-input bg-background px-3 py-2 text-foreground">
                 <option>Page</option>
                 <option>Course</option>
                 <option>News</option>

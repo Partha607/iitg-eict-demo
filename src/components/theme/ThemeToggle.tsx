@@ -2,6 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
 
 type ThemeToggleProps = {
@@ -10,23 +11,28 @@ type ThemeToggleProps = {
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
   const { theme, toggleTheme, mounted } = useTheme();
+  const isDark = theme === "dark";
 
   return (
-    <button
+    <Button
       type="button"
+      variant="outline"
+      size="icon"
       onClick={toggleTheme}
       className={cn(
-        "flex h-9 w-9 items-center justify-center rounded-lg border border-theme-border bg-theme-card/80 text-muted transition-colors hover:border-cyan-400/40 hover:text-cyan-500 dark:hover:text-cyan-300",
+        "border-theme-border bg-card/80 text-muted hover:border-accent/40 hover:bg-accent/10 hover:text-accent",
         className
       )}
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      title={theme === "dark" ? "Light mode" : "Dark mode"}
+      aria-label={
+        isDark ? "Switch to Old Money light theme" : "Switch to dark theme"
+      }
+      title={isDark ? "Old Money (light)" : "Dark mode"}
     >
       {mounted ? (
-        theme === "dark" ? <Sun size={18} /> : <Moon size={18} />
+        isDark ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />
       ) : (
         <span className="h-[18px] w-[18px]" />
       )}
-    </button>
+    </Button>
   );
 }

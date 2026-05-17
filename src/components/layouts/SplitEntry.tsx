@@ -66,7 +66,7 @@ export function SplitEntry() {
   return (
     <div ref={containerRef} className="flex min-h-screen flex-col">
       <header className="absolute left-0 right-0 top-0 z-20 flex items-center justify-between px-6 py-5 md:px-10">
-        <Logo href="/" showSubtitle imageClassName="h-10" />
+        <Logo href="/" imageClassName="h-14 w-auto sm:h-16 md:h-[4.5rem]" />
         <div className="flex items-center gap-4">
           <p className="hidden text-xs text-muted md:block">{siteConfig.tagline}</p>
           <ThemeToggle />

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
+import { PageBackground } from "@/components/layouts/PageBackground";
+import { images } from "@/lib/images";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -16,21 +17,19 @@ export function AcademyFooter() {
   const { contact, footer, social, fullName } = siteConfig;
 
   return (
-    <footer className="relative mt-16 overflow-hidden border-t border-theme-border bg-nav text-foreground">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 text-cyan-900/15 dark:text-cyan-400/10">
-        <Image
-          src="/images/iitg-silhouette.svg"
-          alt=""
-          width={1200}
-          height={200}
-          className="h-auto w-full object-cover object-bottom"
-        />
-      </div>
+    <footer className="relative mt-16 overflow-hidden border-t border-theme-border bg-nav/75 text-foreground backdrop-blur-sm">
+      <PageBackground
+        sources={[images.building]}
+        layout="footer"
+        opacity={0.45}
+        scrimStrength="footer"
+        className="absolute inset-0"
+      />
 
       <div className="academy-container relative z-10 py-12 md:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Logo href="/academy" showSubtitle imageClassName="h-12 w-auto" />
+            <Logo href="/academy" imageClassName="h-16 w-auto sm:h-[4.5rem] md:h-20" />
             <p className="mt-3 text-sm leading-relaxed text-muted">{siteConfig.tagline}</p>
           </div>
 

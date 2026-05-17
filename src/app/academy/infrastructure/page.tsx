@@ -12,10 +12,11 @@ export default function InfrastructurePage() {
   return (
     <>
       <PageHero
-        src={images.heroAbout}
-        alt="E&ICT Academy infrastructure and laboratories"
+        src={images.buildingGarden}
+        alt="E&ICT Academy campus courtyard and facilities"
         title="Infrastructure"
         subtitle="State-of-the-art labs, smart classrooms, and computing facilities at IIT Guwahati"
+        sketch
       />
 
       <div className="academy-container space-y-10 pb-14">

@@ -16,6 +16,7 @@ import {
   whyEnrolReasons,
 } from "@/data/about";
 import { iitGuwahatiAbout, neStates } from "@/data/ne-states";
+import { NeStateCard } from "@/components/academy/NeStateCard";
 import { siteConfig } from "@/data/site";
 import { images } from "@/lib/images";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -99,17 +100,7 @@ export function AboutTimeline() {
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {neStates.map((state) => (
-              <GlassCard
-                key={state.id}
-                className="relative overflow-hidden border-l-4"
-                style={{ borderLeftColor: state.accent }}
-              >
-                <h3 className="font-display text-base font-semibold text-foreground">
-                  {state.name}
-                </h3>
-                <p className="mt-1 text-xs text-muted">Capital: {state.capital}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{state.description}</p>
-              </GlassCard>
+              <NeStateCard key={state.id} state={state} />
             ))}
           </div>
           <p className="mt-6 text-sm text-muted">{neBenefitsNote}</p>

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Source_Sans_3, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import "./globals.css";
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-source-sans",
+  weight: ["400", "500", "600", "700"],
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} dark`}
+      className={`${sourceSans.variable} ${spaceGrotesk.variable} dark`}
       suppressHydrationWarning
     >
       <head>
@@ -41,8 +43,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="grid-bg min-h-screen">
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="eict-bg min-h-screen text-base">
+        <ThemeProvider>
+          {children}
+          <ScrollToTop />
+        </ThemeProvider>
       </body>
     </html>
   );

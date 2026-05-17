@@ -2,10 +2,15 @@
 
 import { useState } from "react";
 import { Mail, MessageCircle } from "lucide-react";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { GlowButton } from "@/components/ui/GlowButton";
 import { siteConfig } from "@/data/site";
 import { FaqSection } from "@/components/academy/FaqSection";
+import { ContactMap } from "@/components/academy/ContactMap";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -16,85 +21,107 @@ export function ContactForm() {
     setSubmitted(true);
   };
 
-  const inputClass =
-    "w-full rounded-lg border border-theme-border bg-background px-4 py-3 text-foreground placeholder:text-muted focus:border-cyan-400/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/20";
-
   return (
     <div className="academy-container space-y-12 py-8 md:py-12">
-    <div className="grid gap-8 lg:grid-cols-2">
-      <div>
-        <h1 className="font-display text-4xl font-bold text-white">Contact Us</h1>
-        <p className="mt-2 text-slate-400">
-          Enquiries flow to the admin Kanban board (WhatsApp &amp; Email channels)
-        </p>
-        <GlassCard className="mt-8">
-          <p className="text-sm text-slate-400">Email</p>
-          <p className="text-cyan-400">{siteConfig.contact.email}</p>
-          <p className="mt-4 text-sm text-slate-400">Phone</p>
-          <p className="text-white">{siteConfig.contact.phoneOffice}</p>
-          <p className="text-white">{siteConfig.contact.phoneMobile}</p>
-          <p className="mt-4 text-sm text-slate-500">{siteConfig.contact.address}</p>
-        </GlassCard>
+      <div className="grid gap-8 lg:grid-cols-2">
+        <div>
+          <h1 className="font-display text-4xl font-bold text-foreground">Contact Us</h1>
+          <p className="mt-2 text-muted-foreground">
+            Enquiries flow to the admin Kanban board (WhatsApp &amp; Email channels)
+          </p>
+          <Card className="mt-8">
+            <CardHeader>
+              <CardTitle className="text-lg">Reach the academy</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm">
+              <div>
+                <p className="text-muted-foreground">Email</p>
+                <p className="font-medium text-foreground">{siteConfig.contact.email}</p>
+              </div>
+              <div>
+                <p className="text-muted-foreground">Phone</p>
+                <p className="font-medium text-foreground">{siteConfig.contact.phoneOffice}</p>
+                <p className="font-medium text-foreground">{siteConfig.contact.phoneMobile}</p>
+              </div>
+              <p className="text-muted-foreground">{siteConfig.contact.address}</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Send an enquiry</CardTitle>
+            <CardDescription>We typically respond within 2–3 business days.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {submitted ? (
+              <div className="py-8 text-center">
+                <p className="font-display text-xl font-semibold text-primary">Thank you!</p>
+                <p className="mt-2 text-muted-foreground">
+                  Your enquiry was submitted (demo). View it in{" "}
+                  <a
+                    href="/portal/admin/enquiries"
+                    className="font-medium text-accent underline-offset-4 hover:underline"
+                  >
+                    Enquiry Kanban
+                  </a>
+                  .
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="contact-name">Full name</Label>
+                  <Input id="contact-name" placeholder="Full name" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="contact-email">Email</Label>
+                  <Input id="contact-email" type="email" placeholder="Email" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="contact-phone">Phone</Label>
+                  <Input id="contact-phone" placeholder="Phone" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="contact-message">Message</Label>
+                  <Textarea id="contact-message" placeholder="Your message" required />
+                </div>
+                <div className="space-y-2">
+                  <Label>Preferred channel</Label>
+                  <div className="flex gap-3">
+                    <Button
+                      type="button"
+                      variant={channel === "whatsapp" ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setChannel("whatsapp")}
+                      className={cn(
+                        channel === "whatsapp" &&
+                          "bg-emerald-700 text-white hover:bg-emerald-700/90 dark:bg-emerald-600"
+                      )}
+                    >
+                      <MessageCircle className="h-4 w-4" /> WhatsApp
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={channel === "email" ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setChannel("email")}
+                    >
+                      <Mail className="h-4 w-4" /> Email
+                    </Button>
+                  </div>
+                </div>
+                <Button type="submit" className="w-full">
+                  Send Enquiry
+                </Button>
+              </form>
+            )}
+          </CardContent>
+        </Card>
       </div>
 
-      <GlassCard>
-        {submitted ? (
-          <div className="py-8 text-center">
-            <p className="font-display text-xl text-emerald-400">Thank you!</p>
-            <p className="mt-2 text-slate-400">
-              Your enquiry was submitted (demo). View it in{" "}
-              <a href="/portal/admin/enquiries" className="text-cyan-400 underline">
-                Enquiry Kanban
-              </a>
-              .
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input className={inputClass} placeholder="Full name" required />
-            <input className={inputClass} type="email" placeholder="Email" required />
-            <input className={inputClass} placeholder="Phone" />
-            <textarea
-              className={`${inputClass} min-h-[120px]`}
-              placeholder="Your message"
-              required
-            />
-            <div>
-              <p className="mb-2 text-sm text-slate-400">Preferred channel</p>
-              <div className="flex gap-3">
-                <button
-                  type="button"
-                  onClick={() => setChannel("whatsapp")}
-                  className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-sm ${
-                    channel === "whatsapp"
-                      ? "border-emerald-400/50 bg-emerald-500/10 text-emerald-300"
-                      : "border-white/10 text-slate-400"
-                  }`}
-                >
-                  <MessageCircle size={16} /> WhatsApp
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setChannel("email")}
-                  className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-sm ${
-                    channel === "email"
-                      ? "border-blue-400/50 bg-blue-500/10 text-blue-300"
-                      : "border-white/10 text-slate-400"
-                  }`}
-                >
-                  <Mail size={16} /> Email
-                </button>
-              </div>
-            </div>
-            <GlowButton type="submit" className="w-full">
-              Send Enquiry
-            </GlowButton>
-          </form>
-        )}
-      </GlassCard>
-    </div>
-    <FaqSection />
+      <ContactMap />
+      <FaqSection />
     </div>
   );
 }
-

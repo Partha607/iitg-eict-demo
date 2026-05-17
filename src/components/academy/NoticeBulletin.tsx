@@ -4,13 +4,23 @@ import Link from "next/link";
 import { Megaphone } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { cn } from "@/lib/utils";
 
-export function NoticeBulletin() {
+type NoticeBulletinProps = {
+  className?: string;
+};
+
+export function NoticeBulletin({ className }: NoticeBulletinProps) {
   const items = [...siteConfig.news, ...siteConfig.news];
   const doubled = items.map((n, i) => ({ ...n, key: `${n.title}-${i}` }));
 
   return (
-    <GlassCard className="flex h-full min-h-[280px] flex-col overflow-hidden md:min-h-[320px]">
+    <GlassCard
+      className={cn(
+        "flex h-full min-h-[280px] flex-col overflow-hidden md:min-h-[320px]",
+        className
+      )}
+    >
       <div className="flex items-center justify-between gap-2 border-b border-theme-border pb-3">
         <div className="flex items-center gap-2">
           <Megaphone size={18} className="text-cyan-600 dark:text-cyan-400" />

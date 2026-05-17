@@ -23,7 +23,7 @@ export function GlowButton({
   const styles = cn(
     "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all",
     variant === "primary" &&
-      "border border-cyan-400/40 bg-gradient-to-r from-cyan-500/25 to-blue-500/25 text-cyan-800 hover:shadow-[0_0_24px_rgba(34,211,238,0.25)] dark:text-cyan-300 dark:hover:from-cyan-500/30 dark:hover:to-blue-500/30",
+      "border border-primary/30 bg-primary/10 text-primary hover:bg-primary/15 hover:shadow-md dark:border-cyan-400/40 dark:bg-gradient-to-r dark:from-cyan-500/25 dark:to-blue-500/25 dark:text-cyan-300 dark:hover:from-cyan-500/30 dark:hover:to-blue-500/30 dark:hover:shadow-[0_0_24px_rgba(34,211,238,0.25)]",
     variant === "secondary" &&
       "border border-blue-400/35 bg-blue-500/10 text-blue-800 hover:bg-blue-500/20 dark:text-blue-300 dark:hover:bg-blue-500/25",
     variant === "ghost" &&

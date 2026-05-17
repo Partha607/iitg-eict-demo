@@ -36,29 +36,47 @@ export const siteConfig = {
   },
   heroSlides: [
     {
-      src: "/images/Hero_Image.png",
-      alt: "E&ICT Academy IIT Guwahati — campus and technology training",
+      src: "/images/iit-pic-1.jpg",
+      alt: "IIT Guwahati campus",
       title: "Electronics & ICT Academy",
       subtitle: "IIT Guwahati · MeitY Initiative for North-East India",
     },
     {
-      src: "/images/Thumbnail_VLSI.png",
-      alt: "VLSI and semiconductor training programmes",
+      src: "/images/iit-pic-2.jpg",
+      alt: "IIT Guwahati campus views",
+      title: "Electronics & ICT Academy",
+      subtitle: "Training · Research · Innovation for North-East India",
+    },
+    {
+      src: "/images/iit-pic-3.png",
+      alt: "IIT Guwahati facilities",
       title: "Industry-Ready ICT Programmes",
       subtitle: "400+ programmes · 25,000+ participants trained",
     },
     {
-      src: "/images/Thumbnail_Machine_Learning.png",
-      alt: "AI and machine learning certification",
+      src: "/images/iit-pic-4.png",
+      alt: "IIT Guwahati academic environment",
       title: "Advance Your Career",
       subtitle: "Certifications in AI/ML, Cloud, Cybersecurity & more",
+    },
+    {
+      src: "/images/iit-pic-5.png",
+      alt: "IIT Guwahati events and community",
+      title: "Electronics & ICT Academy",
+      subtitle: "Empowering faculty, students, and professionals across the North-East",
+    },
+    {
+      src: "/images/iit-pic-6.png",
+      alt: "IIT Guwahati landscape",
+      title: "Electronics & ICT Academy",
+      subtitle: "IIT Guwahati · MeitY Initiative for North-East India",
     },
   ],
   stats: [
     { label: "Programs Conducted", value: "400+" },
     { label: "Participants Trained", value: "25,000+" },
     { label: "Professional Certifications", value: "2,000+" },
-    { label: "NE States Outreach", value: "8+" },
+    { label: "NE States Outreach", value: "8" },
   ],
   pillars: [
     {
