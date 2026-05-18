@@ -1,6 +1,6 @@
 export const academyLocation = {
-  plusCode: "5MRW+W2H",
-  address: "IIT Guwahati, Guwahati, Assam 781039",
+  plusCode: "5PV2+8P",
+  address: "Guwahati, Assam",
   label: "Electronics & ICT Academy, IIT Guwahati",
 } as const;
 

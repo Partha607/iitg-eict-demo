@@ -64,47 +64,47 @@
   --scrollbar-thumb: #8b7355;
 }
 
-/* Soft-gray dark theme - rebased on #888888 with charcoal text for contrast */
+/* Deep slate dark theme - rich, readable contrast */
 .dark {
   color-scheme: dark;
-  --background: #888888;
-  --foreground: #1a1a1a;
-  --muted: #2e2e2e;
-  --muted-foreground: #2e2e2e;
-  --card: rgba(60, 60, 60, 0.72);
-  --card-foreground: #f5f5f5;
-  --popover: #4d4d4d;
-  --popover-foreground: #f5f5f5;
-  --primary: #5eead4;
-  --primary-foreground: #1a1a1a;
-  --secondary: rgba(255, 255, 255, 0.12);
-  --secondary-foreground: #1a1a1a;
-  --accent: rgba(94, 234, 212, 0.22);
-  --accent-foreground: #1a1a1a;
-  --destructive: #b91c1c;
-  --border: rgba(0, 0, 0, 0.22);
-  --input: rgba(0, 0, 0, 0.2);
-  --ring: #5eead4;
-  --nav-bg: rgba(120, 120, 120, 0.92);
-  --eict-electronics: rgba(251, 191, 36, 0.22);
-  --eict-it: rgba(94, 234, 212, 0.24);
-  --eict-communication: rgba(167, 139, 250, 0.2);
-  --scrollbar-track: #6e6e6e;
-  --scrollbar-thumb: #3d3d3d;
+  --background: #1e293b;
+  --foreground: #e2e8f0;
+  --muted: #94a3b8;
+  --muted-foreground: #cbd5e1;
+  --card: rgba(30, 41, 59, 0.85);
+  --card-foreground: #f1f5f9;
+  --popover: #334155;
+  --popover-foreground: #f1f5f9;
+  --primary: #22d3ee;
+  --primary-foreground: #0f172a;
+  --secondary: rgba(148, 163, 184, 0.15);
+  --secondary-foreground: #e2e8f0;
+  --accent: rgba(34, 211, 238, 0.2);
+  --accent-foreground: #e2e8f0;
+  --destructive: #fca5a5;
+  --border: rgba(148, 163, 184, 0.22);
+  --input: rgba(148, 163, 184, 0.18);
+  --ring: #22d3ee;
+  --nav-bg: rgba(15, 23, 42, 0.88);
+  --eict-electronics: rgba(251, 191, 36, 0.18);
+  --eict-it: rgba(94, 234, 212, 0.22);
+  --eict-communication: rgba(167, 139, 250, 0.18);
+  --scrollbar-track: #334155;
+  --scrollbar-thumb: #64748b;
 }
 
 html {
   @apply bg-background text-foreground;
   scroll-behavior: smooth;
-  /* Adaptive root font scaling for older visitors - rems track viewport */
-  font-size: clamp(17px, 1rem + 0.35vw, 21px);
+  /* Adaptive root font: ~25% smaller than prior round, mobile-friendly */
+  font-size: clamp(13px, 0.8125rem + 0.2vw, 16px);
 }
 
 body {
   @apply min-h-screen antialiased;
   font-family: var(--font-source-sans), system-ui, sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.6;
   letter-spacing: 0.01em;
 }
 
@@ -184,6 +184,22 @@ textarea {
 .dark .logo-blend {
   mix-blend-mode: screen;
   filter: brightness(1.05);
+}
+
+/* Container-less text laid over the watermark - soft drop shadow per theme */
+.text-on-watermark {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.dark .text-on-watermark {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+/* Soft translucent pill backdrop for hero copy sitting directly over the watermark */
+.watermark-scrim {
+  background: color-mix(in srgb, var(--background) 62%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 0.75rem;
 }
 
 .academy-container {

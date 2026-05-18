@@ -11,6 +11,7 @@ export const images = {
   buildingLake: "/images/building_lake.png",
   buildingLakeLeft: "/images/building_lake_left.png",
   buildingGarden: "/images/building_garden.png",
+  buildingFar: "/images/building_far.png",
   topView: "/images/top_view.png",
   gate: "/images/Gate.png",
   heroAbout: "/images/Hero_Image.png",

@@ -73,10 +73,10 @@ export function PeopleDirectory() {
 
   return (
     <div className="academy-container py-8 md:py-12">
-        <h1 className="font-display text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
+        <h1 className="text-on-watermark font-display text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
           People
         </h1>
-        <p className="mt-2 max-w-2xl text-base text-muted sm:text-lg">
+        <p className="text-on-watermark mt-2 max-w-2xl text-base text-foreground/85 sm:text-lg">
           Team members grouped by designation - administrative leadership, project staff, and
           support personnel at E&amp;ICT Academy IIT Guwahati.
         </p>
@@ -84,7 +84,7 @@ export function PeopleDirectory() {
         <div className="mt-10 space-y-12">
           {groups.map(({ designation, members }) => (
             <section key={designation}>
-              <h2 className="mb-4 border-b border-theme-border pb-2 font-display text-xl font-semibold text-foreground sm:text-2xl">
+              <h2 className="text-on-watermark mb-4 border-b border-theme-border pb-2 font-display text-xl font-semibold text-foreground sm:text-2xl">
                 {designation}
               </h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -142,10 +142,10 @@ export function PeopleDirectory() {
         </div>
 
         <section className="mt-20">
-          <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
+          <h2 className="text-on-watermark font-display text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
             Governance &amp; Committees
           </h2>
-          <p className="mt-2 max-w-3xl text-base text-muted sm:text-lg">
+          <p className="text-on-watermark mt-2 max-w-3xl text-base text-foreground/85 sm:text-lg">
             Strategic oversight from MeitY, IIT Guwahati, industry and academia partners.
           </p>
 

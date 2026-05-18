@@ -53,7 +53,7 @@ export function PageBackground({
                   alt=""
                   fill
                   sizes="100vw"
-                  className="object-cover object-center"
+                  className="object-cover object-center blur-[1px] saturate-[0.9]"
                   style={{ opacity }}
                   priority={index === 0}
                 />
@@ -66,11 +66,13 @@ export function PageBackground({
             alt=""
             fill
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-center blur-[1px] saturate-[0.9]"
             style={{ opacity }}
             priority
           />
         )}
+        {/* Theme-coloured overlay raises text contrast without darkening the photo too much */}
+        <div className="absolute inset-0 bg-background/45 dark:bg-background/55" />
         {scrimStrength !== "none" && (
           <div className={cn("absolute inset-0", scrimClass[scrimStrength])} />
         )}

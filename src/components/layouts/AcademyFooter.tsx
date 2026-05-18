@@ -26,16 +26,16 @@ export function AcademyFooter() {
         className="absolute inset-0"
       />
 
-      <div className="academy-container relative z-10 py-14 md:py-20">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Logo href="/academy" imageClassName="h-24 w-auto sm:h-28 md:h-32" />
-            <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+            <Logo href="/academy" imageClassName="h-16 w-auto sm:h-20 md:h-24" />
+            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               Electronics and ICT Academy would aim to provide specialized training to the
               faculties of Engineering, Arts, Commerce &amp; Science colleges, Polytechnics etc, by
               developing state-of-the-art facilities.
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+            <p className="mt-3 text-xs leading-relaxed text-muted sm:text-sm">
               {siteConfig.tagline}
             </p>
           </div>
@@ -64,48 +64,48 @@ export function AcademyFooter() {
           </FooterColumn>
 
           <FooterColumn title="Contact Info">
-            <li className="flex gap-2 text-base text-muted sm:text-lg">
-              <MapPin size={18} className="mt-0.5 shrink-0 text-cyan-600 dark:text-cyan-400" />
+            <li className="flex gap-2 text-sm text-muted sm:text-base">
+              <MapPin size={14} className="mt-0.5 shrink-0 text-cyan-600 dark:text-cyan-400" />
               <span>{contact.address}</span>
             </li>
             <li>
               <a
                 href={`mailto:${contact.email}`}
-                className="flex items-center gap-2 text-base text-muted hover:text-cyan-600 sm:text-lg dark:hover:text-cyan-400"
+                className="flex items-center gap-2 text-sm text-muted hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400"
               >
-                <Mail size={18} className="shrink-0" />
+                <Mail size={14} className="shrink-0" />
                 {contact.email}
               </a>
             </li>
             <li>
               <a
                 href={`tel:${contact.phoneOffice.replace(/\s/g, "")}`}
-                className="flex items-center gap-2 text-base text-muted hover:text-cyan-600 sm:text-lg dark:hover:text-cyan-400"
+                className="flex items-center gap-2 text-sm text-muted hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400"
               >
-                <Phone size={18} className="shrink-0" />
+                <Phone size={14} className="shrink-0" />
                 {contact.phoneOffice}
               </a>
             </li>
-            <li className="text-base text-muted sm:text-lg">{contact.phoneMobile}</li>
+            <li className="text-sm text-muted sm:text-base">{contact.phoneMobile}</li>
           </FooterColumn>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-theme-border pt-8 sm:flex-row">
-          <p className="text-center text-sm text-muted sm:text-left sm:text-base">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-theme-border pt-6 sm:flex-row">
+          <p className="text-center text-xs text-muted sm:text-left sm:text-sm">
             © {new Date().getFullYear()} {fullName}. All rights reserved.
           </p>
-          <div className="flex items-center gap-3" aria-label="Social media">
+          <div className="flex items-center gap-2.5" aria-label="Social media">
             <SocialIcon href={social.linkedin} label="LinkedIn">
-              <Linkedin size={18} />
+              <Linkedin size={16} />
             </SocialIcon>
             <SocialIcon href={social.x} label="X">
-              <XIcon className="h-[18px] w-[18px]" />
+              <XIcon className="h-4 w-4" />
             </SocialIcon>
             <SocialIcon href={social.instagram} label="Instagram">
-              <Instagram size={18} />
+              <Instagram size={16} />
             </SocialIcon>
             <SocialIcon href={social.facebook} label="Facebook">
-              <Facebook size={18} />
+              <Facebook size={16} />
             </SocialIcon>
           </div>
         </div>
@@ -123,10 +123,10 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h3 className="font-display text-base font-semibold uppercase tracking-wide text-foreground sm:text-lg">
+      <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-foreground sm:text-base">
         {title}
       </h3>
-      <ul className="mt-4 space-y-3">{children}</ul>
+      <ul className="mt-3 space-y-2.5">{children}</ul>
     </div>
   );
 }
@@ -141,7 +141,7 @@ function FooterLink({
   external?: boolean;
 }) {
   const className =
-    "text-base text-muted transition-colors hover:text-cyan-600 sm:text-lg dark:hover:text-cyan-400";
+    "text-sm text-muted transition-colors hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400";
   if (external) {
     return (
       <li>
@@ -175,7 +175,7 @@ function SocialIcon({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-theme-border text-muted transition-colors hover:border-cyan-400/40 hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-theme-border text-muted transition-colors hover:border-cyan-400/40 hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400"
     >
       {children}
     </a>

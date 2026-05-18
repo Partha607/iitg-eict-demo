@@ -65,10 +65,10 @@ export function AboutTimeline() {
         <div className="academy-container pb-14">
           <section className="mb-14 grid gap-8 md:grid-cols-2 md:items-center">
             <div>
-              <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
+              <h2 className="text-on-watermark font-display text-2xl font-bold text-foreground md:text-3xl">
                 About IIT Guwahati
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+              <p className="text-on-watermark mt-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
                 {iitGuwahatiAbout}
               </p>
               <Link
@@ -94,10 +94,10 @@ export function AboutTimeline() {
           <section className="mb-16">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
+                <h2 className="text-on-watermark font-display text-2xl font-bold text-foreground md:text-3xl">
                   Our Journey
                 </h2>
-                <p className="mt-2 max-w-2xl text-base text-muted sm:text-lg">
+                <p className="text-on-watermark mt-2 max-w-2xl text-base text-foreground/85 sm:text-lg">
                   Key milestones from the launch of the Academy through ongoing Phase-II.
                 </p>
               </div>
@@ -145,10 +145,10 @@ export function AboutTimeline() {
           </section>
 
           <section id="northeast-states" className="mb-14 scroll-mt-24">
-            <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
+            <h2 className="text-on-watermark font-display text-2xl font-bold text-foreground md:text-3xl">
               Northeast India Outreach
             </h2>
-            <p className="mt-2 max-w-3xl text-base text-muted sm:text-lg">
+            <p className="text-on-watermark mt-2 max-w-3xl text-base text-foreground/85 sm:text-lg">
               The Academy serves all eight states of Northeast India through FDPs, virtual
               classrooms, and industry-oriented programmes.
             </p>

@@ -3,34 +3,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GlowButton } from "@/components/ui/GlowButton";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { images } from "@/lib/images";
 
+const partnerLogoClass = "h-10 w-auto sm:h-12 md:h-[3.6rem] lg:h-[4.2rem]";
+
 const partnerLogos = [
   {
     src: "/images/IIT_Guwahati_Logo.svg",
     alt: "IIT Guwahati",
-    width: 220,
-    height: 96,
-    className: "h-16 w-auto sm:h-20 md:h-24 lg:h-28",
+    width: 132,
+    height: 58,
+    className: partnerLogoClass,
   },
   {
     src: "/images/digital_india.png",
     alt: "Digital India",
-    width: 220,
-    height: 88,
-    className: "logo-blend h-16 w-auto sm:h-20 md:h-24 lg:h-28",
+    width: 132,
+    height: 53,
+    className: cn("logo-blend", partnerLogoClass),
   },
   {
     src: "/images/eindia_logo.png",
     alt: "Electronics India",
-    width: 200,
-    height: 88,
-    className: "logo-blend h-16 w-auto sm:h-20 md:h-24 lg:h-28",
+    width: 120,
+    height: 53,
+    className: cn("logo-blend", partnerLogoClass),
   },
 ] as const;
 
@@ -46,6 +48,37 @@ const links = [
 export function AcademyNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    const update = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      if (y < 96) {
+        setHidden(false);
+      } else if (delta > 8) {
+        setHidden(true);
+      } else if (delta < -8) {
+        setHidden(false);
+      }
+      lastY.current = y;
+      ticking.current = false;
+    };
+    const onScroll = () => {
+      if (!ticking.current) {
+        window.requestAnimationFrame(update);
+        ticking.current = true;
+      }
+    };
+    lastY.current = window.scrollY;
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Always reveal the nav when the mobile menu is open
+  const effectiveHidden = hidden && !open;
 
   const linkClass = (href: string) =>
     cn(
@@ -56,16 +89,21 @@ export function AcademyNav() {
     );
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-theme-border bg-nav/90 backdrop-blur-md">
+    <nav
+      className={cn(
+        "sticky top-0 z-50 border-b border-theme-border bg-nav/90 backdrop-blur-md transition-transform duration-300 ease-out",
+        effectiveHidden && "-translate-y-full"
+      )}
+    >
       <div className="academy-nav-container">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-theme-border/80 py-4 sm:gap-6 md:gap-8 lg:gap-10">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-theme-border/80 py-3 sm:gap-6 md:gap-8 lg:gap-10">
           <Link href="/academy" className="shrink-0">
             <Image
               src={images.logo}
               alt="Electronics & ICT Academy"
-              width={480}
-              height={128}
-              className="h-20 w-auto max-w-[min(100%,28rem)] object-contain object-left sm:h-24 md:h-28 lg:h-32 xl:h-36 dark:brightness-110"
+              width={520}
+              height={160}
+              className="h-[6.5rem] w-auto max-w-[min(100%,32rem)] object-contain object-left sm:h-[7.5rem] md:h-[9rem] lg:h-[10.5rem] xl:h-[12rem] dark:brightness-110"
               priority
             />
           </Link>

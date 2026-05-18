@@ -14,22 +14,19 @@ function resolveBackground(pathname: string): BgConfig {
     return null;
   }
   if (pathname === "/academy") {
-    return {
-      sources: [images.building, images.buildingGarden],
-      opacity: 0.6,
-    };
+    return { sources: [images.buildingSide], opacity: 0.18 };
   }
   if (pathname === "/academy/about") {
-    return { sources: [images.aboutIitg], opacity: 0.6 };
+    return { sources: [images.buildingFar], opacity: 0.18 };
   }
   if (pathname === "/academy/people") {
-    return { sources: [images.buildingCentral], opacity: 0.6 };
+    return { sources: [images.topView], opacity: 0.18 };
   }
   if (pathname === "/academy/infrastructure") {
-    return { sources: [images.buildingGarden], opacity: 0.6 };
+    return { sources: [images.buildingLakeLeft], opacity: 0.18 };
   }
   if (pathname === "/academy/contact") {
-    return { sources: [images.buildingCentral], opacity: 0.6 };
+    return { sources: [images.buildingCentral], opacity: 0.18 };
   }
   return null;
 }

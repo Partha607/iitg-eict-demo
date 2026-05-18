@@ -25,10 +25,10 @@ export function ContactForm() {
     <div className="academy-container space-y-12 py-8 md:py-12">
       <div className="grid gap-8 lg:grid-cols-2">
         <div>
-          <h1 className="font-display text-4xl font-bold text-foreground sm:text-5xl">
+          <h1 className="text-on-watermark font-display text-4xl font-bold text-foreground sm:text-5xl">
             Contact Us
           </h1>
-          <p className="mt-2 text-base text-muted-foreground sm:text-lg">
+          <p className="text-on-watermark mt-2 text-base text-foreground/85 sm:text-lg">
             Enquiries flow to the admin Kanban board (WhatsApp &amp; Email channels)
           </p>
           <Card className="mt-8">

@@ -8,7 +8,7 @@ export const siteConfig = {
     email: "eictacad@iitg.ac.in",
     phoneOffice: "+91-361-2583182",
     phoneMobile: "+91-7086502139",
-    address: "Indian Institute of Technology Guwahati, Assam 781039",
+    address: "Indian Institute of Technology, Amingaon-Doul Gobinda Road, near North Amingaon, IIT Guwahati, Guwahati, Assam 781039",
   },
   social: socialLinks,
   footer: {

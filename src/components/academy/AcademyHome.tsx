@@ -15,7 +15,7 @@ export function AcademyHome() {
       <HeroSection />
 
       <div className="academy-container py-10 md:py-14">
-        <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="watermark-scrim mx-auto max-w-3xl px-5 py-4 text-center text-base leading-relaxed text-foreground sm:text-lg">
           {scrapedSynopsis}
         </p>
 

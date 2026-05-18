@@ -36,7 +36,7 @@ export default function PortalLoginPage() {
       <div className="flex flex-col items-center px-4 pt-10 sm:pt-14">
         <Logo
           href="/"
-          imageClassName="h-24 w-auto max-w-[min(100%,28rem)] object-contain object-center sm:h-28 md:h-32 lg:h-36"
+          imageClassName="h-[7.8rem] w-auto max-w-[min(100%,32rem)] object-contain object-center sm:h-[9rem] md:h-[10.4rem] lg:h-[11.7rem]"
         />
       </div>
       <div className="flex flex-1 items-center justify-center p-4 pt-8">
