@@ -87,14 +87,14 @@ export function PeopleDirectory() {
               <h2 className="text-on-watermark mx-auto mb-4 max-w-3xl border-b border-theme-border pb-2 text-center font-display text-xl font-semibold text-foreground sm:text-2xl">
                 {designation}
               </h2>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 {members.map((member, index) => {
                   const variant = avatarForIndex(index);
                   const placeholder = images.avatars[variant];
                   return (
                     <GlassCard
                       key={member.id}
-                      className="flex flex-col items-center text-center"
+                      className="flex w-full max-w-[18rem] flex-col items-center text-center sm:w-[18rem]"
                     >
                       <div className="relative mb-4 h-24 w-24 overflow-hidden rounded-full border-2 border-cyan-400/25 bg-slate-100 dark:bg-slate-800">
                         <Image
@@ -149,12 +149,15 @@ export function PeopleDirectory() {
             Strategic oversight from MeitY, IIT Guwahati, industry and academia partners.
           </p>
 
-          <div className="mt-8 grid gap-6 text-left lg:grid-cols-2">
+          <div className="mt-8 flex flex-wrap justify-center gap-6">
             {committees.map((c) => {
               const Icon = committeeIcon(c.title);
               return (
-                <GlassCard key={c.title} className="h-full text-left">
-                  <div className="mb-4 flex items-center gap-3">
+                <GlassCard
+                  key={c.title}
+                  className="flex h-full w-full max-w-xl flex-col lg:w-[calc(50%-0.75rem)]"
+                >
+                  <div className="mb-4 flex flex-col items-center gap-3 text-center">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300">
                       <Icon size={22} aria-hidden />
                     </div>
@@ -167,7 +170,7 @@ export function PeopleDirectory() {
                       </p>
                     </div>
                   </div>
-                  <ul className="space-y-2.5">
+                  <ul className="w-full space-y-2.5 text-left">
                     {c.members.map((raw) => {
                       const { role, name, isLead } = parseCommitteeMember(raw);
                       return (
@@ -200,8 +203,8 @@ export function PeopleDirectory() {
             })}
           </div>
 
-          <GlassCard className="mt-8 text-left">
-            <div className="mb-4 flex items-center gap-3">
+          <GlassCard className="mt-8 flex flex-col">
+            <div className="mb-4 flex flex-col items-center gap-3 text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-amber-400/30 bg-amber-500/10 text-amber-700 dark:text-amber-300">
                 <Users size={22} aria-hidden />
               </div>
@@ -214,7 +217,7 @@ export function PeopleDirectory() {
                 </p>
               </div>
             </div>
-            <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid w-full gap-2 text-left sm:grid-cols-2 lg:grid-cols-3">
               {associatedFaculty.map((m) => (
                 <li
                   key={m}

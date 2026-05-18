@@ -82,7 +82,7 @@ export function AcademyNav() {
 
   const linkClass = (href: string) =>
     cn(
-      "rounded-lg px-2.5 py-2 text-base font-medium transition-colors hover:bg-cyan-500/10 hover:text-cyan-700 dark:hover:text-cyan-400 xl:px-3",
+      "rounded-lg px-2.5 py-1 text-base font-medium transition-colors hover:bg-cyan-500/10 hover:text-cyan-700 dark:hover:text-cyan-400 xl:px-3",
       pathname === href || (href !== "/academy" && pathname.startsWith(href))
         ? "text-cyan-700 dark:text-cyan-400"
         : "text-foreground"
@@ -96,18 +96,18 @@ export function AcademyNav() {
       )}
     >
       <div className="academy-nav-container">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-theme-border/80 py-3 sm:gap-6 md:gap-8 lg:gap-10">
-          <Link href="/academy" className="shrink-0">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-theme-border/80 py-0 leading-none sm:gap-4 md:gap-6 lg:gap-8">
+          <Link href="/academy" className="block shrink-0 leading-none">
             <Image
               src={images.logo}
               alt="Electronics & ICT Academy"
-              width={640}
-              height={200}
-              className="h-[9rem] w-auto max-w-[min(100%,40rem)] object-contain object-left sm:h-[11rem] md:h-[13rem] lg:h-[15rem] xl:h-[17rem] dark:brightness-110"
+              width={480}
+              height={140}
+              className="block h-14 w-auto max-w-[min(100%,28rem)] object-contain object-left sm:h-16 md:h-20 lg:h-24 xl:h-28 dark:brightness-110"
               priority
             />
           </Link>
-          <div className="flex flex-wrap items-center justify-end gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+          <div className="flex flex-wrap items-center justify-end gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {partnerLogos.map((logo) => (
               <Image
                 key={logo.src}
@@ -121,8 +121,8 @@ export function AcademyNav() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-3 py-2.5 sm:py-3">
-          <div className="hidden w-28 shrink-0 lg:block" aria-hidden />
+        <div className="flex items-center justify-between gap-2 py-0.5">
+          <div className="hidden w-20 shrink-0 lg:block" aria-hidden />
 
           <div className="hidden flex-1 items-center justify-center gap-0.5 lg:flex xl:gap-1">
             {links.map((link) => (
@@ -137,11 +137,14 @@ export function AcademyNav() {
             <GlowButton
               href="/portal/login"
               variant="secondary"
-              className="!px-3 !py-2 text-sm sm:text-base"
+              className="!px-3 !py-1.5 text-sm sm:text-base"
             >
               Portal
             </GlowButton>
-            <GlowButton href="/portal/verify" className="!px-3 !py-2 text-sm sm:text-base">
+            <GlowButton
+              href="/portal/verify"
+              className="!px-3 !py-1.5 text-sm sm:text-base"
+            >
               Verify Certificate
             </GlowButton>
           </div>
@@ -150,12 +153,12 @@ export function AcademyNav() {
             <ThemeToggle />
             <button
               type="button"
-              className="rounded-lg p-2 text-foreground hover:bg-cyan-500/10"
+              className="rounded-lg p-1.5 text-foreground hover:bg-cyan-500/10"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
               aria-expanded={open}
             >
-              {open ? <X size={24} /> : <Menu size={24} />}
+              {open ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>

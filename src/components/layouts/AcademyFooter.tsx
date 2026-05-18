@@ -29,7 +29,10 @@ export function AcademyFooter() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10 sm:px-8 md:py-14 lg:px-12">
         <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-16">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Logo href="/academy" imageClassName="h-16 w-auto sm:h-20 md:h-24" />
+            <Logo
+              href="/academy"
+              imageClassName="h-20 w-auto max-w-full object-contain sm:h-24 md:h-28"
+            />
             <p className="mt-4 text-sm font-medium leading-relaxed text-foreground/85 sm:text-base">
               Electronics and ICT Academy would aim to provide specialized training to the
               faculties of Engineering, Arts, Commerce &amp; Science colleges, Polytechnics etc, by
@@ -42,20 +45,28 @@ export function AcademyFooter() {
 
           <FooterColumn title="For Students">
             {footer.forStudents.map((link) => (
-              <FooterLink key={link.href} href={link.href} label={link.label} />
+              <FooterLink
+                key={`${link.label}-${link.href}`}
+                href={link.href}
+                label={link.label}
+              />
             ))}
           </FooterColumn>
 
           <FooterColumn title="Quick Links">
             {footer.quickLinks.map((link) => (
-              <FooterLink key={link.href} href={link.href} label={link.label} />
+              <FooterLink
+                key={`${link.label}-${link.href}`}
+                href={link.href}
+                label={link.label}
+              />
             ))}
           </FooterColumn>
 
           <FooterColumn title="About Northeast India">
             {footer.aboutNe.map((link) => (
               <FooterLink
-                key={link.href}
+                key={`${link.label}-${link.href}`}
                 href={link.href}
                 label={link.label}
                 external={link.href.startsWith("http")}

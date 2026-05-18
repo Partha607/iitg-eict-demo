@@ -1,15 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Shield, UserCircle } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { GlowButton } from "@/components/ui/GlowButton";
-import { Logo } from "@/components/ui/Logo";
 import { RolePortalPreview } from "@/components/ui/RoleAvatar";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { usePortalAuth } from "@/components/portal/PortalAuthProvider";
 import { ADMIN_HOME } from "@/lib/portal-auth";
+import { images } from "@/lib/images";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -33,11 +34,17 @@ export default function PortalLoginPage() {
       <div className="absolute right-4 top-4 z-10 sm:right-6 sm:top-6">
         <ThemeToggle />
       </div>
-      <div className="flex flex-col items-center px-4 pt-8 sm:pt-12">
-        <Logo
-          href="/"
-          imageClassName="h-[10rem] w-auto max-w-[min(100%,40rem)] object-contain object-center sm:h-[12rem] md:h-[14rem] lg:h-[16rem]"
-        />
+      <div className="flex justify-center px-4 pt-8 sm:pt-12">
+        <Link href="/" aria-label="Electronics & ICT Academy home" className="block">
+          <Image
+            src={images.logo}
+            alt="Electronics & ICT Academy"
+            width={480}
+            height={140}
+            className="mx-auto block h-14 w-auto max-w-[min(100%,28rem)] object-contain object-center dark:brightness-110 sm:h-16 md:h-20 lg:h-24 xl:h-28"
+            priority
+          />
+        </Link>
       </div>
       <div className="flex flex-1 items-center justify-center p-4 pt-8">
         <GlassCard glow className="w-full max-w-md">

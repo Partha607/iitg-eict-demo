@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
+  ArrowLeft,
   ClipboardList,
   Home,
   Kanban,
   LayoutDashboard,
-  LogOut,
   Shield,
   UserPlus,
 } from "lucide-react";
@@ -113,10 +113,10 @@ export function PortalSidebar() {
         <button
           type="button"
           onClick={handleSignOut}
-          className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-base text-foreground/85 hover:text-red-600 dark:hover:text-red-300"
+          className="flex w-full items-center gap-2 rounded-lg border border-theme-border bg-card/60 px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-cyan-500/10 hover:text-cyan-700 dark:hover:text-cyan-400"
         >
-          <LogOut size={18} aria-hidden />
-          Sign out
+          <ArrowLeft size={18} aria-hidden />
+          Back to Login
         </button>
       </aside>
 

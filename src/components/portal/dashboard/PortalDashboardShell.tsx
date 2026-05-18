@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/ui/Logo";
 import { dashboardNav } from "@/data/dashboard-mock";
-import { Bell, ChevronDown, LogOut, Mail, Search, DashboardIcon } from "./DashboardIcons";
+import { Bell, ChevronDown, Mail, Search, DashboardIcon } from "./DashboardIcons";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { RoleAvatar } from "@/components/ui/RoleAvatar";
 
@@ -24,12 +25,12 @@ export function PortalDashboardShell({
   return (
     <div className="flex min-h-screen bg-[#eef1f6] text-[#1a2b4a] dark:bg-slate-950 dark:text-slate-100">
       {/* Sidebar */}
-      <aside className="hidden w-[280px] shrink-0 flex-col bg-[#0b1f3f] text-white lg:flex">
+      <aside className="hidden w-[300px] shrink-0 flex-col bg-[#0b1f3f] text-white lg:flex">
         <div className="border-b border-white/10 px-4 py-6">
           <Logo
             href="/"
-            imageClassName="max-w-[260px] brightness-110 contrast-110"
-            className="[&_img]:h-20 [&_img]:sm:h-24"
+            imageClassName="max-w-[280px] brightness-110 contrast-110"
+            className="[&_img]:h-[6.25rem] [&_img]:sm:h-[7.5rem]"
           />
         </div>
         <nav className="flex-1 space-y-0.5 overflow-y-auto px-2 py-4">
@@ -54,11 +55,11 @@ export function PortalDashboardShell({
         </nav>
         <div className="border-t border-white/10 p-4">
           <Link
-            href="/"
-            className="mb-4 flex items-center gap-2 text-sm text-white/70 hover:text-white"
+            href="/portal/login"
+            className="mb-4 flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-white/15"
           >
-            <LogOut size={16} />
-            Logout
+            <ArrowLeft size={16} />
+            Back to Login
           </Link>
           <p className="text-[10px] leading-relaxed text-white/40">
             © 2024 Indian Institute of Technology Guwahati
