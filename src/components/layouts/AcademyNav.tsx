@@ -9,26 +9,27 @@ import { cn } from "@/lib/utils";
 import { GlowButton } from "@/components/ui/GlowButton";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { images } from "@/lib/images";
+import { withBasePath } from "@/lib/asset-path";
 
 const partnerLogoClass = "h-10 w-auto sm:h-12 md:h-[3.6rem] lg:h-[4.2rem]";
 
 const partnerLogos = [
   {
-    src: "/images/IIT_Guwahati_Logo.svg",
+    src: withBasePath("/images/IIT_Guwahati_Logo.svg"),
     alt: "IIT Guwahati",
     width: 132,
     height: 58,
     className: partnerLogoClass,
   },
   {
-    src: "/images/digital_india.png",
+    src: withBasePath("/images/digital_india.png"),
     alt: "Digital India",
     width: 132,
     height: 53,
     className: cn("logo-blend", partnerLogoClass),
   },
   {
-    src: "/images/eindia_logo.png",
+    src: withBasePath("/images/eindia_logo.png"),
     alt: "Electronics India",
     width: 120,
     height: 53,

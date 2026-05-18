@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/asset-path";
+
 export type LabFacility = {
   id: string;
   name: string;
@@ -19,7 +21,7 @@ export const academyLabs: LabFacility[] = [
       "Digital podium with interactive panel",
       "Video conferencing & webcasting",
     ],
-    image: "/images/iit-pic-3.png",
+    image: withBasePath("/images/iit-pic-3.png"),
     accent: "cyan",
   },
   {
@@ -33,7 +35,7 @@ export const academyLabs: LabFacility[] = [
       "Raspberry Pi kits for IoT",
       "LAN & Wi-Fi connectivity",
     ],
-    image: "/images/Thumbnail_Machine_Learning.png",
+    image: withBasePath("/images/Thumbnail_Machine_Learning.png"),
     accent: "violet",
   },
   {
@@ -47,7 +49,7 @@ export const academyLabs: LabFacility[] = [
       "MSP430 & Wi-Fi booster kits",
       "Projector for lectures",
     ],
-    image: "/images/Thumbnail_VLSI.png",
+    image: withBasePath("/images/Thumbnail_VLSI.png"),
     accent: "amber",
   },
 ];

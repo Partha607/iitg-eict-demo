@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Sans_3, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { withBasePath } from "@/lib/asset-path";
 import "./globals.css";
 
 const sourceSans = Source_Sans_3({
@@ -15,15 +16,13 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
 export const metadata: Metadata = {
   title: "E&ICT Academy | IIT Guwahati",
   description:
     "Electronics and ICT Academy, IIT Guwahati - Training, research, and innovation for North-East India.",
   icons: {
-    icon: `${basePath}/images/logo.png`,
-    apple: `${basePath}/images/logo.png`,
+    icon: withBasePath("/images/logo.png"),
+    apple: withBasePath("/images/logo.png"),
   },
 };
 

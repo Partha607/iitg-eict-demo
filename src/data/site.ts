@@ -1,4 +1,5 @@
 import { socialLinks } from "@/data/social";
+import { withBasePath } from "@/lib/asset-path";
 
 export const siteConfig = {
   name: "E&ICT Academy",
@@ -36,43 +37,43 @@ export const siteConfig = {
   },
   heroSlides: [
     {
-      src: "/images/iit-pic-1.jpg",
+      src: withBasePath("/images/iit-pic-1.jpg"),
       alt: "IIT Guwahati campus",
       title: "Electronics & ICT Academy",
       subtitle: "IIT Guwahati · MeitY Initiative for North-East India",
     },
     {
-      src: "/images/iit-pic-2.jpg",
+      src: withBasePath("/images/iit-pic-2.jpg"),
       alt: "IIT Guwahati campus views",
       title: "Electronics & ICT Academy",
       subtitle: "Training · Research · Innovation for North-East India",
     },
     {
-      src: "/images/iit-pic-3.png",
+      src: withBasePath("/images/iit-pic-3.png"),
       alt: "IIT Guwahati facilities",
       title: "Industry-Ready ICT Programmes",
       subtitle: "400+ programmes · 25,000+ participants trained",
     },
     {
-      src: "/images/iit-pic-4.png",
+      src: withBasePath("/images/iit-pic-4.png"),
       alt: "IIT Guwahati academic environment",
       title: "Advance Your Career",
       subtitle: "Certifications in AI/ML, Cloud, Cybersecurity & more",
     },
     {
-      src: "/images/iit-pic-5.png",
+      src: withBasePath("/images/iit-pic-5.png"),
       alt: "IIT Guwahati events and community",
       title: "Electronics & ICT Academy",
       subtitle: "Empowering faculty, students, and professionals across the North-East",
     },
     {
-      src: "/images/iit-pic-6.png",
+      src: withBasePath("/images/iit-pic-6.png"),
       alt: "IIT Guwahati landscape",
       title: "Electronics & ICT Academy",
       subtitle: "IIT Guwahati · MeitY Initiative for North-East India",
     },
     {
-      src: "/images/iit-pic-7.jpg",
+      src: withBasePath("/images/iit-pic-7.jpg"),
       alt: "IIT Guwahati - new campus view",
       title: "Electronics & ICT Academy",
       subtitle: "Specialized training for faculties across India",
