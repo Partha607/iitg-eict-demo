@@ -16,13 +16,47 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
+const siteOrigin =
+  process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "http://localhost:3000";
+const faviconSvg = withBasePath("/images/favicon.svg");
+const faviconPng = withBasePath("/images/favicon.png");
+const siteTitle = "E&ICT Academy | IIT Guwahati";
+const siteDescription =
+  "Electronics and ICT Academy, IIT Guwahati - Training, research, and innovation for North-East India.";
+
 export const metadata: Metadata = {
-  title: "E&ICT Academy | IIT Guwahati",
-  description:
-    "Electronics and ICT Academy, IIT Guwahati - Training, research, and innovation for North-East India.",
+  metadataBase: new URL(siteOrigin),
+  title: siteTitle,
+  description: siteDescription,
+  applicationName: "E&ICT Academy",
   icons: {
-    icon: withBasePath("/images/logo.png"),
-    apple: withBasePath("/images/logo.png"),
+    icon: [
+      { url: faviconSvg, type: "image/svg+xml" },
+      { url: faviconPng, type: "image/png", sizes: "any" },
+    ],
+    apple: faviconPng,
+    shortcut: faviconPng,
+  },
+  openGraph: {
+    type: "website",
+    siteName: "E&ICT Academy",
+    title: siteTitle,
+    description: siteDescription,
+    url: `${siteOrigin}${withBasePath("/")}`,
+    images: [
+      {
+        url: faviconPng,
+        width: 512,
+        height: 512,
+        alt: "E&ICT Academy, IIT Guwahati logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+    images: [faviconPng],
   },
 };
 

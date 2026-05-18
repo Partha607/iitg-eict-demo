@@ -46,6 +46,10 @@ jobs:
         env:
           # Used by next.config.ts + layout metadata icons
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          # Origin (e.g. "https://owner.github.io" - no base path) used to
+          # build absolute URLs in OpenGraph / Twitter metadata so link
+          # unfurls in Slack/WhatsApp/etc. can fetch the thumbnail.
+          NEXT_PUBLIC_SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
         run: npm run build
 
       - name: Upload artifact
