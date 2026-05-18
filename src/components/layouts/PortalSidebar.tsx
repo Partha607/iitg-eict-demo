@@ -11,7 +11,7 @@ import {
   Shield,
   UserPlus,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, normalizePath } from "@/lib/utils";
 import { Logo } from "@/components/ui/Logo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { usePortalAuth } from "@/components/portal/PortalAuthProvider";
@@ -58,7 +58,7 @@ const navItems: NavItem[] = [
 ];
 
 export function PortalSidebar() {
-  const pathname = usePathname();
+  const pathname = normalizePath(usePathname());
   const router = useRouter();
   const { role, signOut } = usePortalAuth();
 

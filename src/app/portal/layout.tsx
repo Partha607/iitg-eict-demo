@@ -5,6 +5,7 @@ import { PortalSidebar } from "@/components/layouts/PortalSidebar";
 import { PortalAuthProvider } from "@/components/portal/PortalAuthProvider";
 import { PortalRouteGuard } from "@/components/portal/PortalRouteGuard";
 import { isAdminRoute } from "@/lib/portal-auth";
+import { normalizePath } from "@/lib/utils";
 
 const minimalRoutes = ["/portal/login", "/portal/register"];
 const dashboardRoutes = ["/portal/lms", "/portal/staff"];
@@ -22,7 +23,7 @@ export default function PortalLayout({
 }
 
 function PortalLayoutInner({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+  const pathname = normalizePath(usePathname());
   const minimal = minimalRoutes.includes(pathname);
   const isDashboard = dashboardRoutes.includes(pathname);
   const adminSection = isAdminRoute(pathname);

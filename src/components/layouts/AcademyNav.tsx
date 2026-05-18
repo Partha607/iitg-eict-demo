@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, normalizePath } from "@/lib/utils";
 import { GlowButton } from "@/components/ui/GlowButton";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { images } from "@/lib/images";
@@ -47,7 +47,7 @@ const links = [
 ];
 
 export function AcademyNav() {
-  const pathname = usePathname();
+  const pathname = normalizePath(usePathname());
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);

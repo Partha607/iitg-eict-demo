@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { PageBackground } from "@/components/layouts/PageBackground";
 import { images } from "@/lib/images";
+import { normalizePath } from "@/lib/utils";
 
 type BgConfig = {
   sources: readonly string[];
@@ -32,7 +33,7 @@ function resolveBackground(pathname: string): BgConfig {
 }
 
 export function AcademyPageBackground() {
-  const pathname = usePathname();
+  const pathname = normalizePath(usePathname());
   const config = resolveBackground(pathname);
   if (!config) return null;
 
