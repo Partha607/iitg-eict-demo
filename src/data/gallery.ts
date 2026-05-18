@@ -48,7 +48,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g6",
     title: "Certificate Ceremony",
     phase: "Phase I",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80",
+    image: "https://www.iitg.ac.in/storage/media/da11d0ae798e02e2f3f5d0f3f508ec96.JPG?w=600&q=80",
     aspect: "square",
   },
   {
