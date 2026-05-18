@@ -21,21 +21,21 @@ export function AcademyFooter() {
       <PageBackground
         sources={[images.building]}
         layout="footer"
-        opacity={0.45}
-        scrimStrength="footer"
+        opacity={0.18}
+        scrimStrength="medium"
         className="absolute inset-0"
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10 sm:px-8 md:py-14 lg:px-12">
+        <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-16">
           <div className="sm:col-span-2 lg:col-span-1">
             <Logo href="/academy" imageClassName="h-16 w-auto sm:h-20 md:h-24" />
-            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+            <p className="mt-4 text-sm font-medium leading-relaxed text-foreground/85 sm:text-base">
               Electronics and ICT Academy would aim to provide specialized training to the
               faculties of Engineering, Arts, Commerce &amp; Science colleges, Polytechnics etc, by
               developing state-of-the-art facilities.
             </p>
-            <p className="mt-3 text-xs leading-relaxed text-muted sm:text-sm">
+            <p className="mt-3 text-xs font-medium leading-relaxed text-foreground/75 sm:text-sm">
               {siteConfig.tagline}
             </p>
           </div>
@@ -64,14 +64,14 @@ export function AcademyFooter() {
           </FooterColumn>
 
           <FooterColumn title="Contact Info">
-            <li className="flex gap-2 text-sm text-muted sm:text-base">
+            <li className="flex gap-2 text-sm font-medium text-foreground/80 sm:text-base">
               <MapPin size={14} className="mt-0.5 shrink-0 text-cyan-600 dark:text-cyan-400" />
               <span>{contact.address}</span>
             </li>
             <li>
               <a
                 href={`mailto:${contact.email}`}
-                className="flex items-center gap-2 text-sm text-muted hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400"
+                className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400"
               >
                 <Mail size={14} className="shrink-0" />
                 {contact.email}
@@ -80,18 +80,20 @@ export function AcademyFooter() {
             <li>
               <a
                 href={`tel:${contact.phoneOffice.replace(/\s/g, "")}`}
-                className="flex items-center gap-2 text-sm text-muted hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400"
+                className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400"
               >
                 <Phone size={14} className="shrink-0" />
                 {contact.phoneOffice}
               </a>
             </li>
-            <li className="text-sm text-muted sm:text-base">{contact.phoneMobile}</li>
+            <li className="text-sm font-medium text-foreground/80 sm:text-base">
+              {contact.phoneMobile}
+            </li>
           </FooterColumn>
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-theme-border pt-6 sm:flex-row">
-          <p className="text-center text-xs text-muted sm:text-left sm:text-sm">
+          <p className="text-center text-xs font-medium text-foreground/75 sm:text-left sm:text-sm">
             © {new Date().getFullYear()} {fullName}. All rights reserved.
           </p>
           <div className="flex items-center gap-2.5" aria-label="Social media">
@@ -123,10 +125,10 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-foreground sm:text-base">
+      <h3 className="font-display text-sm font-bold uppercase tracking-wide text-foreground sm:text-base">
         {title}
       </h3>
-      <ul className="mt-3 space-y-2.5">{children}</ul>
+      <ul className="mt-4 space-y-3">{children}</ul>
     </div>
   );
 }
@@ -141,7 +143,7 @@ function FooterLink({
   external?: boolean;
 }) {
   const className =
-    "text-sm text-muted transition-colors hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400";
+    "text-sm font-medium text-foreground/85 transition-colors hover:text-cyan-600 sm:text-base dark:hover:text-cyan-400";
   if (external) {
     return (
       <li>

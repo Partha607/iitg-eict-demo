@@ -24,12 +24,12 @@ export function PortalDashboardShell({
   return (
     <div className="flex min-h-screen bg-[#eef1f6] text-[#1a2b4a] dark:bg-slate-950 dark:text-slate-100">
       {/* Sidebar */}
-      <aside className="hidden w-[220px] shrink-0 flex-col bg-[#0b1f3f] text-white lg:flex">
-        <div className="border-b border-white/10 px-4 py-5">
+      <aside className="hidden w-[280px] shrink-0 flex-col bg-[#0b1f3f] text-white lg:flex">
+        <div className="border-b border-white/10 px-4 py-6">
           <Logo
             href="/"
-            imageClassName="max-w-[200px] brightness-110 contrast-110"
-            className="[&_img]:h-12 [&_img]:sm:h-14"
+            imageClassName="max-w-[260px] brightness-110 contrast-110"
+            className="[&_img]:h-20 [&_img]:sm:h-24"
           />
         </div>
         <nav className="flex-1 space-y-0.5 overflow-y-auto px-2 py-4">

@@ -33,10 +33,10 @@ export default function PortalLoginPage() {
       <div className="absolute right-4 top-4 z-10 sm:right-6 sm:top-6">
         <ThemeToggle />
       </div>
-      <div className="flex flex-col items-center px-4 pt-10 sm:pt-14">
+      <div className="flex flex-col items-center px-4 pt-8 sm:pt-12">
         <Logo
           href="/"
-          imageClassName="h-[7.8rem] w-auto max-w-[min(100%,32rem)] object-contain object-center sm:h-[9rem] md:h-[10.4rem] lg:h-[11.7rem]"
+          imageClassName="h-[10rem] w-auto max-w-[min(100%,40rem)] object-contain object-center sm:h-[12rem] md:h-[14rem] lg:h-[16rem]"
         />
       </div>
       <div className="flex flex-1 items-center justify-center p-4 pt-8">

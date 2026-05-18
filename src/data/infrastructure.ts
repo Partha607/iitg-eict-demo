@@ -3,6 +3,8 @@ export type LabFacility = {
   name: string;
   description: string;
   highlights: string[];
+  image: string;
+  accent: "cyan" | "amber" | "violet";
 };
 
 export const academyLabs: LabFacility[] = [
@@ -17,6 +19,8 @@ export const academyLabs: LabFacility[] = [
       "Digital podium with interactive panel",
       "Video conferencing & webcasting",
     ],
+    image: "/images/iit-pic-3.png",
+    accent: "cyan",
   },
   {
     id: "ai-lab",
@@ -29,6 +33,8 @@ export const academyLabs: LabFacility[] = [
       "Raspberry Pi kits for IoT",
       "LAN & Wi-Fi connectivity",
     ],
+    image: "/images/Thumbnail_Machine_Learning.png",
+    accent: "violet",
   },
   {
     id: "multipurpose",
@@ -41,6 +47,8 @@ export const academyLabs: LabFacility[] = [
       "MSP430 & Wi-Fi booster kits",
       "Projector for lectures",
     ],
+    image: "/images/Thumbnail_VLSI.png",
+    accent: "amber",
   },
 ];
 

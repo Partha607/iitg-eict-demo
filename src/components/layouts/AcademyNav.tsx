@@ -101,9 +101,9 @@ export function AcademyNav() {
             <Image
               src={images.logo}
               alt="Electronics & ICT Academy"
-              width={520}
-              height={160}
-              className="h-[6.5rem] w-auto max-w-[min(100%,32rem)] object-contain object-left sm:h-[7.5rem] md:h-[9rem] lg:h-[10.5rem] xl:h-[12rem] dark:brightness-110"
+              width={640}
+              height={200}
+              className="h-[9rem] w-auto max-w-[min(100%,40rem)] object-contain object-left sm:h-[11rem] md:h-[13rem] lg:h-[15rem] xl:h-[17rem] dark:brightness-110"
               priority
             />
           </Link>

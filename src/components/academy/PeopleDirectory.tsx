@@ -72,11 +72,11 @@ export function PeopleDirectory() {
   const groups = groupByDesignation(faculty);
 
   return (
-    <div className="academy-container py-8 md:py-12">
+    <div className="academy-container py-8 text-center md:py-12">
         <h1 className="text-on-watermark font-display text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
           People
         </h1>
-        <p className="text-on-watermark mt-2 max-w-2xl text-base text-foreground/85 sm:text-lg">
+        <p className="text-on-watermark mx-auto mt-3 max-w-2xl text-base text-foreground/85 sm:text-lg">
           Team members grouped by designation - administrative leadership, project staff, and
           support personnel at E&amp;ICT Academy IIT Guwahati.
         </p>
@@ -84,7 +84,7 @@ export function PeopleDirectory() {
         <div className="mt-10 space-y-12">
           {groups.map(({ designation, members }) => (
             <section key={designation}>
-              <h2 className="text-on-watermark mb-4 border-b border-theme-border pb-2 font-display text-xl font-semibold text-foreground sm:text-2xl">
+              <h2 className="text-on-watermark mx-auto mb-4 max-w-3xl border-b border-theme-border pb-2 text-center font-display text-xl font-semibold text-foreground sm:text-2xl">
                 {designation}
               </h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -145,15 +145,15 @@ export function PeopleDirectory() {
           <h2 className="text-on-watermark font-display text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
             Governance &amp; Committees
           </h2>
-          <p className="text-on-watermark mt-2 max-w-3xl text-base text-foreground/85 sm:text-lg">
+          <p className="text-on-watermark mx-auto mt-3 max-w-3xl text-base text-foreground/85 sm:text-lg">
             Strategic oversight from MeitY, IIT Guwahati, industry and academia partners.
           </p>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <div className="mt-8 grid gap-6 text-left lg:grid-cols-2">
             {committees.map((c) => {
               const Icon = committeeIcon(c.title);
               return (
-                <GlassCard key={c.title} className="h-full">
+                <GlassCard key={c.title} className="h-full text-left">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300">
                       <Icon size={22} aria-hidden />
@@ -200,7 +200,7 @@ export function PeopleDirectory() {
             })}
           </div>
 
-          <GlassCard className="mt-8">
+          <GlassCard className="mt-8 text-left">
             <div className="mb-4 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-amber-400/30 bg-amber-500/10 text-amber-700 dark:text-amber-300">
                 <Users size={22} aria-hidden />

@@ -58,10 +58,10 @@ export function EnquiryKanban() {
   return (
     <div className="p-4 md:p-8">
       <header className="mb-8">
-        <h1 className="font-display text-2xl font-bold text-white md:text-3xl">
+        <h1 className="font-display text-2xl font-bold text-foreground md:text-3xl">
           Enquiry Management
         </h1>
-        <p className="text-slate-400">
+        <p className="text-foreground/80 dark:text-slate-400">
           Omnichannel pipeline - WhatsApp &amp; Email indicators (demo)
         </p>
       </header>
