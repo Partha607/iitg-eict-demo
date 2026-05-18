@@ -29,12 +29,17 @@ export default function PortalLoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="flex items-center justify-between px-6 py-4">
-        <Logo href="/" />
+    <div className="relative flex min-h-screen flex-col">
+      <div className="absolute right-4 top-4 z-10 sm:right-6 sm:top-6">
         <ThemeToggle />
-      </header>
-      <div className="flex flex-1 items-center justify-center p-4">
+      </div>
+      <div className="flex flex-col items-center px-4 pt-10 sm:pt-14">
+        <Logo
+          href="/"
+          imageClassName="h-24 w-auto max-w-[min(100%,28rem)] object-contain object-center sm:h-28 md:h-32 lg:h-36"
+        />
+      </div>
+      <div className="flex flex-1 items-center justify-center p-4 pt-8">
         <GlassCard glow className="w-full max-w-md">
           <div className="mb-6">
             <h1 className="font-display text-3xl font-bold text-foreground">Portal Login</h1>

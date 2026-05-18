@@ -6,47 +6,45 @@ import { images } from "@/lib/images";
 
 type BgConfig = {
   sources: readonly string[];
-  layout: "single" | "stacked";
   opacity?: number;
-};
+} | null;
 
 function resolveBackground(pathname: string): BgConfig {
+  if (pathname === "/academy/gallery") {
+    return null;
+  }
   if (pathname === "/academy") {
     return {
-      sources: [images.buildingCentral, images.buildingSide],
-      layout: "stacked",
-      opacity: 0.48,
+      sources: [images.building, images.buildingGarden],
+      opacity: 0.6,
     };
   }
   if (pathname === "/academy/about") {
-    return { sources: [images.buildingLakeLeft], layout: "single", opacity: 0.45 };
+    return { sources: [images.aboutIitg], opacity: 0.6 };
   }
   if (pathname === "/academy/people") {
-    return { sources: [images.topView], layout: "single", opacity: 0.42 };
+    return { sources: [images.buildingCentral], opacity: 0.6 };
   }
   if (pathname === "/academy/infrastructure") {
-    return { sources: [images.buildingLake], layout: "single", opacity: 0.45 };
+    return { sources: [images.buildingGarden], opacity: 0.6 };
   }
   if (pathname === "/academy/contact") {
-    return { sources: [images.gate], layout: "single", opacity: 0.44 };
+    return { sources: [images.buildingCentral], opacity: 0.6 };
   }
-  return {
-    sources: [images.buildingCentral, images.buildingSide],
-    layout: "stacked",
-    opacity: 0.46,
-  };
+  return null;
 }
 
 export function AcademyPageBackground() {
   const pathname = usePathname();
-  const { sources, layout, opacity } = resolveBackground(pathname);
+  const config = resolveBackground(pathname);
+  if (!config) return null;
 
   return (
     <PageBackground
-      sources={sources}
-      layout={layout}
-      opacity={opacity}
-      scrimStrength="light"
+      sources={config.sources}
+      layout="watermark"
+      opacity={config.opacity}
+      scrimStrength="none"
     />
   );
 }

@@ -14,25 +14,23 @@ const partnerLogos = [
   {
     src: "/images/IIT_Guwahati_Logo.svg",
     alt: "IIT Guwahati",
-    width: 200,
-    height: 80,
-    className: "h-14 w-auto sm:h-16 md:h-[4.5rem] lg:h-20",
+    width: 220,
+    height: 96,
+    className: "h-16 w-auto sm:h-20 md:h-24 lg:h-28",
   },
   {
     src: "/images/digital_india.png",
     alt: "Digital India",
-    width: 200,
-    height: 72,
-    className:
-      "h-14 w-auto rounded-md bg-white px-3 py-2 sm:h-16 md:h-[4.25rem] lg:h-20 dark:bg-white/95",
+    width: 220,
+    height: 88,
+    className: "logo-blend h-16 w-auto sm:h-20 md:h-24 lg:h-28",
   },
   {
     src: "/images/eindia_logo.png",
     alt: "Electronics India",
-    width: 180,
-    height: 72,
-    className:
-      "h-14 w-auto rounded-md bg-white px-3 py-2 sm:h-16 md:h-[4.25rem] lg:h-20 dark:bg-white/95",
+    width: 200,
+    height: 88,
+    className: "logo-blend h-16 w-auto sm:h-20 md:h-24 lg:h-28",
   },
 ] as const;
 
@@ -60,27 +58,29 @@ export function AcademyNav() {
   return (
     <nav className="sticky top-0 z-50 border-b border-theme-border bg-nav/90 backdrop-blur-md">
       <div className="academy-nav-container">
-        <div className="flex flex-wrap items-center justify-center gap-4 border-b border-theme-border/80 py-4 sm:gap-8 md:gap-10 lg:gap-12">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-theme-border/80 py-4 sm:gap-6 md:gap-8 lg:gap-10">
           <Link href="/academy" className="shrink-0">
             <Image
               src={images.logo}
               alt="Electronics & ICT Academy"
-              width={360}
-              height={96}
-              className="h-16 w-auto max-w-[min(100%,22rem)] object-contain object-left sm:h-20 md:h-24 lg:h-28 dark:brightness-110"
+              width={480}
+              height={128}
+              className="h-20 w-auto max-w-[min(100%,28rem)] object-contain object-left sm:h-24 md:h-28 lg:h-32 xl:h-36 dark:brightness-110"
               priority
             />
           </Link>
-          {partnerLogos.map((logo) => (
-            <Image
-              key={logo.src}
-              src={logo.src}
-              alt={logo.alt}
-              width={logo.width}
-              height={logo.height}
-              className={logo.className}
-            />
-          ))}
+          <div className="flex flex-wrap items-center justify-end gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+            {partnerLogos.map((logo) => (
+              <Image
+                key={logo.src}
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className={logo.className}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="flex items-center justify-between gap-3 py-2.5 sm:py-3">

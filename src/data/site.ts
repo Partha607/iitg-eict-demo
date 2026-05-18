@@ -71,6 +71,12 @@ export const siteConfig = {
       title: "Electronics & ICT Academy",
       subtitle: "IIT Guwahati · MeitY Initiative for North-East India",
     },
+    {
+      src: "/images/iit-pic-7.jpg",
+      alt: "IIT Guwahati - new campus view",
+      title: "Electronics & ICT Academy",
+      subtitle: "Specialized training for faculties across India",
+    },
   ],
   stats: [
     { label: "Programs Conducted", value: "400+" },

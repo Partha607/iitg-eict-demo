@@ -32,77 +32,79 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* Old Money - light theme */
+/* Warm beige light theme - rebased on #F5E8D8 */
 :root,
 .light {
   color-scheme: light;
   --radius: 0.625rem;
-  --background: #f6f1e8;
-  --foreground: #1c1914;
-  --muted: #3d3830;
-  --muted-foreground: #3d3830;
-  --card: #fffdf7;
-  --card-foreground: #1c1914;
-  --popover: #fffdf7;
-  --popover-foreground: #1c1914;
+  --background: #f5e8d8;
+  --foreground: #2a1f12;
+  --muted: #5c4a35;
+  --muted-foreground: #5c4a35;
+  --card: #fbf3e6;
+  --card-foreground: #2a1f12;
+  --popover: #fbf3e6;
+  --popover-foreground: #2a1f12;
   --primary: #2f4538;
-  --primary-foreground: #f6f1e8;
-  --secondary: #ebe4d6;
-  --secondary-foreground: #1c1914;
+  --primary-foreground: #f5e8d8;
+  --secondary: #ead9c2;
+  --secondary-foreground: #2a1f12;
   --accent: #8b6914;
-  --accent-foreground: #1c1914;
+  --accent-foreground: #2a1f12;
   --destructive: #9f1239;
-  --border: rgba(28, 25, 20, 0.14);
-  --input: rgba(28, 25, 20, 0.12);
+  --border: rgba(42, 31, 18, 0.16);
+  --input: rgba(42, 31, 18, 0.14);
   --ring: #8b6914;
-  --nav-bg: rgba(255, 253, 247, 0.94);
+  --nav-bg: rgba(251, 243, 230, 0.94);
   /* E · ICT - Electronics · Information Technology · Communication */
   --eict-electronics: rgba(184, 134, 11, 0.45);
   --eict-it: rgba(14, 116, 144, 0.38);
   --eict-communication: rgba(91, 33, 182, 0.32);
-  --scrollbar-track: #ebe4d6;
+  --scrollbar-track: #ead9c2;
   --scrollbar-thumb: #8b7355;
 }
 
-/* Mid-grey / slate dark theme - elevated surfaces, softened contrast (not pure black) */
+/* Soft-gray dark theme - rebased on #888888 with charcoal text for contrast */
 .dark {
   color-scheme: dark;
-  --background: #3d4a5c;
-  --foreground: #e8eaed;
-  --muted: #b8c0cc;
-  --muted-foreground: #b8c0cc;
-  --card: rgba(30, 41, 59, 0.72);
-  --card-foreground: #e8eaed;
-  --popover: #475569;
-  --popover-foreground: #e8eaed;
+  --background: #888888;
+  --foreground: #1a1a1a;
+  --muted: #2e2e2e;
+  --muted-foreground: #2e2e2e;
+  --card: rgba(60, 60, 60, 0.72);
+  --card-foreground: #f5f5f5;
+  --popover: #4d4d4d;
+  --popover-foreground: #f5f5f5;
   --primary: #5eead4;
-  --primary-foreground: #1e293b;
-  --secondary: rgba(255, 255, 255, 0.1);
-  --secondary-foreground: #e8eaed;
-  --accent: rgba(94, 234, 212, 0.18);
-  --accent-foreground: #e8eaed;
-  --destructive: #fca5a5;
-  --border: rgba(255, 255, 255, 0.14);
-  --input: rgba(255, 255, 255, 0.12);
+  --primary-foreground: #1a1a1a;
+  --secondary: rgba(255, 255, 255, 0.12);
+  --secondary-foreground: #1a1a1a;
+  --accent: rgba(94, 234, 212, 0.22);
+  --accent-foreground: #1a1a1a;
+  --destructive: #b91c1c;
+  --border: rgba(0, 0, 0, 0.22);
+  --input: rgba(0, 0, 0, 0.2);
   --ring: #5eead4;
-  --nav-bg: rgba(51, 65, 85, 0.92);
+  --nav-bg: rgba(120, 120, 120, 0.92);
   --eict-electronics: rgba(251, 191, 36, 0.22);
   --eict-it: rgba(94, 234, 212, 0.24);
   --eict-communication: rgba(167, 139, 250, 0.2);
-  --scrollbar-track: #475569;
-  --scrollbar-thumb: #64748b;
+  --scrollbar-track: #6e6e6e;
+  --scrollbar-thumb: #3d3d3d;
 }
 
 html {
   @apply bg-background text-foreground;
   scroll-behavior: smooth;
+  /* Adaptive root font scaling for older visitors - rems track viewport */
+  font-size: clamp(17px, 1rem + 0.35vw, 21px);
 }
 
 body {
   @apply min-h-screen antialiased;
   font-family: var(--font-source-sans), system-ui, sans-serif;
   font-size: 1.0625rem;
-  line-height: 1.65;
+  line-height: 1.7;
   letter-spacing: 0.01em;
 }
 
@@ -161,6 +163,27 @@ textarea {
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+}
+
+/* Fixed full-bleed watermark behind page content */
+.page-watermark {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Neutralize white plate behind partner logos via blend mode */
+.logo-blend {
+  mix-blend-mode: multiply;
+}
+.dark .logo-blend {
+  mix-blend-mode: screen;
+  filter: brightness(1.05);
 }
 
 .academy-container {

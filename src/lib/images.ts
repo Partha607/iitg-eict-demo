@@ -16,6 +16,10 @@ export const images = {
   heroAbout: "/images/Hero_Image.png",
   achievements: "/images/Acheivements.png",
   history: "/images/History.png",
+  iitPic7: "/images/iit-pic-7.jpg",
+  aboutIitg: "/images/about_iitg.jpg",
+  eictHero: "/images/eict_hero.jpg",
+  infraHero: "/images/infra_hero.jpg",
   thumbnails: {
     vlsi: "/images/Thumbnail_VLSI.png",
     iot: "/images/Thumbnail_IoT.png",
