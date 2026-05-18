@@ -1,0 +1,41 @@
+name: CI
+
+# Run typecheck, lint, and a production build on every pull request and
+# on direct pushes to non-main branches. main is deployed via deploy.yml,
+# which is itself a strong signal that the build is healthy.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Typecheck, lint, build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npx next lint
+
+      - name: Build (static export)
+        # No BASE_PATH set: PR builds run as if deploying to a domain root.
+        # This still proves the export pipeline works end to end.
+        run: npm run build

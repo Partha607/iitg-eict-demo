@@ -15,13 +15,15 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const metadata: Metadata = {
   title: "E&ICT Academy | IIT Guwahati",
   description:
     "Electronics and ICT Academy, IIT Guwahati - Training, research, and innovation for North-East India.",
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: `${basePath}/images/logo.png`,
+    apple: `${basePath}/images/logo.png`,
   },
 };
 
