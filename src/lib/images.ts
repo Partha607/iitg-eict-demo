@@ -28,6 +28,12 @@ export const images = {
     iot: withBasePath("/images/Thumbnail_IoT.png"),
     ml: withBasePath("/images/Thumbnail_Machine_Learning.png"),
     cybersecurity: withBasePath("/images/Thumbnail_Cybersecurity.png"),
+    dataScience: withBasePath("/images/Advanced_Data_Science.png"),
+    cloud: withBasePath("/images/Cloud_Computing_DevOps.png"),
+    fullStack: withBasePath("/images/Full_Stack_Web_Development.png"),
+    uiux: withBasePath("/images/UI-UX_Design_for_Digital_Products.png"),
+    bigData: withBasePath("/images/Big_Data_Analytics.png"),
+    embedded: withBasePath("/images/Embedded_Systems_with_ARM.png"),
   },
   avatars: {
     male: withBasePath("/images/Placeholder_Avatars_Male.png"),
@@ -44,6 +50,12 @@ export function getDomainThumbnail(domain: string): string | undefined {
   if (d.includes("iot")) return images.thumbnails.iot;
   if (d.includes("ai") || d.includes("ml") || d.includes("machine")) return images.thumbnails.ml;
   if (d.includes("cyber") || d.includes("security")) return images.thumbnails.cybersecurity;
+  if (d.includes("data science")) return images.thumbnails.dataScience;
+  if (d.includes("cloud")) return images.thumbnails.cloud;
+  if (d.includes("software")) return images.thumbnails.fullStack;
+  if (d.includes("design")) return images.thumbnails.uiux;
+  if (d.includes("big data")) return images.thumbnails.bigData;
+  if (d.includes("embedded")) return images.thumbnails.embedded;
   return undefined;
 }
 

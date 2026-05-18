@@ -27,22 +27,30 @@ export function AcademyFooter() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10 sm:px-8 md:py-14 lg:px-12">
-        <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-16">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Logo
-              href="/academy"
-              imageClassName="h-20 w-auto max-w-full object-contain sm:h-24 md:h-28"
-            />
-            <p className="mt-4 text-sm font-medium leading-relaxed text-foreground/85 sm:text-base">
+        {/* TOP ROW - logo left, subtext beside it horizontally */}
+        <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
+          <Logo
+            href="/academy"
+            imageClassName="h-20 w-auto max-w-full object-contain sm:h-24 md:h-28"
+            className="shrink-0"
+          />
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-medium leading-relaxed text-foreground/85 sm:text-base md:text-lg">
               Electronics and ICT Academy would aim to provide specialized training to the
               faculties of Engineering, Arts, Commerce &amp; Science colleges, Polytechnics etc, by
               developing state-of-the-art facilities.
             </p>
-            <p className="mt-3 text-xs font-medium leading-relaxed text-foreground/75 sm:text-sm">
+            <p className="mt-2 text-xs font-medium leading-relaxed text-foreground/70 sm:text-sm">
               {siteConfig.tagline}
             </p>
           </div>
+        </div>
 
+        {/* DIVIDER */}
+        <div className="my-8 h-px w-full bg-theme-border md:my-10" />
+
+        {/* BELOW THE LINE - link columns + contact */}
+        <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-14">
           <FooterColumn title="For Students">
             {footer.forStudents.map((link) => (
               <FooterLink
@@ -103,9 +111,14 @@ export function AcademyFooter() {
           </FooterColumn>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-theme-border pt-6 sm:flex-row">
+        {/* BOTTOM ROW - copyright + designer credit + socials */}
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-theme-border pt-6 sm:flex-row">
           <p className="text-center text-xs font-medium text-foreground/75 sm:text-left sm:text-sm">
             © {new Date().getFullYear()} {fullName}. All rights reserved.
+          </p>
+          <p className="text-center text-xs font-medium text-foreground/70 sm:text-sm">
+            Planned &amp; Designed by{" "}
+            <span className="font-semibold text-foreground/85">N8E Labs LLP.</span>
           </p>
           <div className="flex items-center gap-2.5" aria-label="Social media">
             <SocialIcon href={social.linkedin} label="LinkedIn">

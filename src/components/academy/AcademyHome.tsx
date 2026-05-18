@@ -7,6 +7,7 @@ import { scrapedSynopsis } from "@/data/scraped-content";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { HeroSection } from "@/components/academy/HeroSection";
 import { PillarsAndCourses } from "@/components/academy/PillarsAndCourses";
+import { CoursesOnOffer } from "@/components/academy/CoursesOnOffer";
 import { SocialFeed } from "@/components/academy/SocialFeed";
 
 export function AcademyHome() {
@@ -52,6 +53,8 @@ export function AcademyHome() {
           ))}
         </div>
       </div>
+
+      <CoursesOnOffer />
 
       <SocialFeed />
     </>
